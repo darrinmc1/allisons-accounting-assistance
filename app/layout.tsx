@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ClerkProvider } from "@clerk/nextjs"
 import AuthNav from "@/components/auth-nav"
 import "./globals.css"
+import { FeedbackWidget } from "@/components/feedback-widget"
 
 export const metadata: Metadata = {
   title: "Allison's Accounting Assistance — Accounting help that actually makes sense",
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </header>
 
         <main>{children}</main>
+        <FeedbackWidget />
 
         <footer className="border-t border-slate-200 bg-slate-50">
           <div className="mx-auto max-w-6xl px-4 md:px-6 py-12">
