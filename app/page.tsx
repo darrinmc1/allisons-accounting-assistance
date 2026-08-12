@@ -251,7 +251,7 @@ export default function Home() {
               <div key={tpl.id} className="rounded-xl border border-slate-200 p-5">
                 <div className="flex items-start justify-between mb-3">
                   <span className={`text-xs font-bold px-2 py-1 rounded ${tpl.tier === "free" ? "bg-green-100 text-green-700" : "bg-brand-100 text-brand-700"}`}>
-                    {tpl.tier === "free" ? "Free" : `$${tpl.price}`}
+                    {tpl.tier === "free" ? "Free" : tpl.price}
                   </span>
                 </div>
                 <h3 className="font-bold mb-1">{tpl.title}</h3>
