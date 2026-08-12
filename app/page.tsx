@@ -131,8 +131,9 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 relative overflow-hidden py-16 md:py-24">
+        <div className="absolute inset-0 bg-[url('/images/hero-allisons.jpg')] bg-cover bg-center opacity-25" aria-hidden="true" />
+        <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
           <div className="max-w-3xl space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">
               Accounting help that actually makes sense
