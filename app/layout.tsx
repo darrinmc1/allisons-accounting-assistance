@@ -8,6 +8,10 @@ import { FeedbackWidget } from "@/components/feedback-widget"
 export const metadata: Metadata = {
   title: "Allison's Accounting Assistance — Accounting help that actually makes sense",
   description: "Courses, templates, and tools for small business bookkeeping, tax prep, payroll, and business setup. Free resources and pro templates.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 }
 
 const navLinks = [
