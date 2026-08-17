@@ -1,4 +1,5 @@
 import Link from "next/link"
+import HumorBreak from "@/components/humor-break"
 import { ArrowRight, BookOpen } from "lucide-react"
 
 const courses = [
@@ -114,6 +115,7 @@ export default function LearnPage() {
           </div>
         </div>
       </section>
+      <HumorBreak tag="general" />
 
       <section className="mx-auto max-w-6xl px-4 md:px-6 py-12">
         <div className="grid gap-6 md:grid-cols-2">
