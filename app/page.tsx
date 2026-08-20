@@ -109,24 +109,6 @@ const templates = [
   },
 ]
 
-const testimonials = [
-  {
-    quote: "I was terrified of doing my own books. Allison's courses made everything click. I actually look forward to reconciling now.",
-    author: "Maria G.",
-    role: "Freelance Graphic Designer",
-  },
-  {
-    quote: "The quarterly tax course saved me from a $3,000 penalty. Best investment I've made in my business this year.",
-    author: "James T.",
-    role: "Independent Contractor",
-  },
-  {
-    quote: "I went from shoebox accounting to proper books in one weekend. The templates alone are worth ten times the price.",
-    author: "Sarah K.",
-    role: "Small Business Owner",
-  },
-]
-
 export default function Home() {
   return (
     <div>
@@ -271,27 +253,6 @@ export default function Home() {
             <Link href="/templates" className="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700">
               View all templates <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-slate-50 py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="mb-10 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-600 mb-3">Trusted by Small Business Owners</p>
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Real people, real results</h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <div key={t.author} className="rounded-xl border border-slate-200 bg-white p-6">
-                <p className="text-sm text-slate-600 mb-4 leading-relaxed italic">&ldquo;{t.quote}&rdquo;</p>
-                <div>
-                  <p className="font-bold text-sm">{t.author}</p>
-                  <p className="text-xs text-slate-500">{t.role}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

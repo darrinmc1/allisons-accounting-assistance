@@ -8,8 +8,8 @@ export default function AboutPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">About</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Accounting help from someone who&apos;s been in your shoes</h1>
           <p className="text-lg text-slate-600">
-            Every course, template, and tool on this site was created by someone who has done public accounting,
-            run their own practice, and helped hundreds of small business owners make sense of their finances.
+            Every course, template, and tool on this site was created by someone who has done public accounting
+            and run their own practice.
           </p>
         </div>
       </div>
