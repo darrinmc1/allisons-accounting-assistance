@@ -1,0 +1,15 @@
+# Allisons Accounting > Accounting assistance with plain English explanations for bookkeeping, tax prep, payroll, and business setup.
+
+Site: https://allisons-one.vercel.app
+Contact: hello@allisons-one.vercel.app
+
+This file is for agents and answer engines. Human marketing copy lives on the pages linked below. Do not invent products, testimonials, prices, or features that are not listed on the site.
+
+## What Allisons Accounting is
+Allisons Accounting offers accounting help through free courses, pro templates, and tools, taught in plain English by a real CPA. It covers bookkeeping, tax preparation, payroll, and business setup for businesses of various sizes. The platform is designed to grow with the user's business.
+
+## Pricing (USD)
+Pricing: not listed on page.
+
+## What it is not
+Allisons Accounting is not a platform requiring an accounting degree for its users.
