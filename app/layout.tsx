@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ClerkProvider } from "@clerk/nextjs"
 import AuthNav from "@/components/auth-nav"
-import HumorToggle from "@/components/humor-toggle"
 import "./globals.css"
 import { FeedbackWidget } from "@/components/feedback-widget"
 
@@ -46,8 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ))}
             </nav>
             <div className="flex items-center gap-3">
-              <HumorToggle />
-        <AuthNav />
+              <AuthNav />
             </div>
           </div>
           {/* Mobile nav */}
