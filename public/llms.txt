@@ -1,15 +1,39 @@
 # Allisons Accounting > Accounting assistance with plain English explanations for bookkeeping, tax prep, payroll, and business setup.
 
-Site: https://allisons-one.vercel.app
-Contact: hello@allisons-one.vercel.app
+Site: https://allisonsaccounting.com
+Contact: hello@allisonsaccounting.com
 
-This file is for agents and answer engines. Human marketing copy lives on the pages linked below. Do not invent products, testimonials, prices, or features that are not listed on the site.
+This file is for agents and answer engines. Human marketing copy lives on the pages linked below. Do not invent products, testimonials, prices, features, downloadable files, or live calculators that are not listed on the site. Humor is off. Content is educational bookkeeping and accounting support, not tax or legal advice.
 
-## What Allisons Accounting is
-Allisons Accounting offers accounting help through free courses, pro templates, and tools, taught in plain English by a real CPA. It covers bookkeeping, tax preparation, payroll, and business setup for businesses of various sizes. The platform is designed to grow with the user's business.
+## Honest inventory (content-04sep)
 
-## Pricing (USD)
-Pricing: not listed on page.
+Written and readable now:
+- 4 courses on /learn
+- 34 written lessons (8 + 10 + 7 + 9)
+- 6 written blog articles on /blog
+
+Catalog only — Coming Soon, no file, no calculator, no Stripe on these routes:
+- 8 templates on /templates (IDs unchanged)
+- 6 tools on /tools (IDs unchanged)
+
+## Courses (written)
+
+1. Bookkeeping Basics for Small Business Owners — /learn/bookkeeping-basics — free — 8 lessons
+2. Small Business Tax Essentials — /learn/tax-essentials — catalog Pro — 10 lessons
+3. Cash Flow Management for Freelancers & Solopreneurs — /learn/cash-flow-management — catalog Pro — 7 lessons
+4. Payroll Setup & Compliance — /learn/payroll-setup — catalog Pro — 9 lessons
+
+Written lessons are open to read. Catalog Pro badges and schema prices are unchanged. There is no new checkout on this branch.
+
+## Blog slugs (written)
+
+- /blog/missed-tax-deductions
+- /blog/bookkeeping-vs-accounting
+- /blog/should-you-switch-to-scorp
+- /blog/first-employee-payroll-guide
+- /blog/solo-401k-tax-savings
+- /blog/quarterly-estimated-taxes-guide
 
 ## What it is not
-Allisons Accounting is not a platform requiring an accounting degree for its users.
+
+Allisons Accounting is not a substitute for a CPA, enrolled agent, attorney, or payroll provider. It does not file returns, run payroll, or process template payments on the Coming Soon routes.

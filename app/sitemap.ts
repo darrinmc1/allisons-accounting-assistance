@@ -1,4 +1,8 @@
 import type { MetadataRoute } from "next"
+import { blogPosts } from "@/lib/content/blog-posts"
+import { courses } from "@/lib/content/courses"
+import { templates } from "@/lib/content/templates"
+import { tools } from "@/lib/content/tools"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://allisonsaccounting.com"
@@ -14,14 +18,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.5 },
   ]
 
-  const blogPosts = [
-    { url: `${baseUrl}/blog/missed-tax-deductions`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${baseUrl}/blog/bookkeeping-vs-accounting`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${baseUrl}/blog/should-you-switch-to-scorp`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${baseUrl}/blog/first-employee-payroll-guide`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${baseUrl}/blog/solo-401k-tax-savings`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-    { url: `${baseUrl}/blog/quarterly-estimated-taxes-guide`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.6 },
-  ]
+  const coursePages = courses.flatMap((course) => [
+    {
+      url: `${baseUrl}/learn/${course.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    ...course.lessons.map((lesson) => ({
+      url: `${baseUrl}/learn/${course.id}/${lesson.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ])
 
-  return [...staticPages, ...blogPosts]
+  const blogPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }))
+
+  const toolPages = tools.map((tool) => ({
+    url: `${baseUrl}/tools/${tool.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.4,
+  }))
+
+  const templatePages = templates.map((template) => ({
+    url: `${baseUrl}/templates/${template.id}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.4,
+  }))
+
+  return [...staticPages, ...coursePages, ...blogPages, ...toolPages, ...templatePages]
 }
