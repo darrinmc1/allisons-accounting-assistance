@@ -35,7 +35,7 @@ export function WhatYouGet() {
           <Reveal>
             <p className="text-sm font-medium text-craft-teal">What you get</p>
             <h2 className="mt-2 max-w-xl text-3xl font-bold tracking-tight text-white">
-              An accounting product, not a slogan stack.
+              Courses, templates, and calculators as they exist.
             </h2>
           </Reveal>
         </div>

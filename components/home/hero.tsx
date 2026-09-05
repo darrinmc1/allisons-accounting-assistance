@@ -48,15 +48,15 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-6 px-4 py-8 md:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,32rem)] lg:gap-12 lg:py-16">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-craft-teal sm:text-sm">
-            Accounting assistance for small business
+            Bookkeeping Basics · Chart of accounts
           </p>
           <h1 className="mt-3 max-w-[18ch] text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
-            Allison&apos;s Accounting Assistance teaches the books in plain English
+            Close the books without guessing the GST column.
           </h1>
           <p className="mt-4 hidden max-w-xl text-pretty text-base leading-relaxed text-craft-muted sm:block md:text-lg">
-            Written courses on bookkeeping, tax prep, payroll, and business
-            setup. Templates and calculators when you need the worksheet, not
-            another slogan.
+            GST belongs in its own column before the BAS is due. The free
+            written course starts at the chart of accounts, then month-end
+            close.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export function Hero() {
 
         <div className="min-w-0">
           <p className="max-w-xl text-sm leading-relaxed text-craft-muted sm:hidden">
-            Written bookkeeping, tax, payroll, and setup — taught without jargon.
+            GST in its own column, then month-end close.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:mt-0 sm:flex-row sm:flex-wrap">
             <Link

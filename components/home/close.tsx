@@ -49,8 +49,8 @@ export function Close() {
             Start with the free bookkeeping course.
           </h2>
           <p className="mt-3 max-w-xl text-craft-muted">
-            No invented client stories on this page. Plans and paid templates
-            live on their own routes — not in the first screen.
+            Plans and paid templates live on Pricing and Templates, not on
+            the first screen.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link

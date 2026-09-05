@@ -40,11 +40,11 @@ export function PathRail() {
         <Reveal>
           <p className="text-sm font-medium text-craft-teal">Written courses</p>
           <h2 className="mt-2 max-w-xl text-3xl font-bold tracking-tight text-white">
-            Courses you can open, not a catalog of blanks.
+            Four written courses on Learn.
           </h2>
           <p className="mt-3 max-w-xl text-craft-muted">
-            Four courses are listed on the Learn page. We will not invent a
-            student count or a completion rate to dress them up.
+            Bookkeeping Basics is free. Tax, payroll, and cash flow sit next
+            to it on the Learn page.
           </p>
         </Reveal>
 
