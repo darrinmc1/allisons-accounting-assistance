@@ -6,15 +6,15 @@ import { Reveal } from "@/components/home/reveal"
 const CARDS = [
   {
     kicker: "01",
-    title: "Written courses. Counted honestly.",
-    body: "Bookkeeping Basics is free and written for owners, not staff accountants. Tax, payroll, and cash-flow courses sit next to it on Learn. We do not publish a learner count we do not have.",
+    title: "Bookkeeping Basics, then tax and payroll.",
+    body: "Bookkeeping Basics is free and written for owners, not staff accountants. Tax, payroll, and cash-flow courses sit next to it on Learn.",
     href: "/learn",
     cta: "Open the courses",
   },
   {
     kicker: "02",
     title: "Templates that match the books.",
-    body: "Income statement, balance sheet, and cash flow are free. Invoice, tax-worksheet, and payroll packs are on Templates when you need a working file — not a stock photo of a spreadsheet.",
+    body: "Income statement, balance sheet, and cash flow are free. Invoice, tax-worksheet, and payroll packs are on Templates when you need a working file.",
     href: "/templates",
     cta: "Browse templates",
   },
@@ -35,7 +35,7 @@ export function WhatYouGet() {
           <Reveal>
             <p className="text-sm font-medium text-craft-teal">What you get</p>
             <h2 className="mt-2 max-w-xl text-3xl font-bold tracking-tight text-white">
-              Courses, templates, and calculators as they exist.
+              Bookkeeping Basics, the worksheets, and the tax math.
             </h2>
           </Reveal>
         </div>

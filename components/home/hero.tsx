@@ -80,7 +80,7 @@ export function Hero() {
               href="/learn"
               className="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-700 active:scale-[0.96]"
             >
-              Start free bookkeeping lesson
+              Start the chart of accounts lesson
             </Link>
             <Link
               href="/templates"

@@ -6,7 +6,7 @@ import { Reveal } from "@/components/home/reveal"
 
 const SISTER = [
   { name: "Money Mastery", href: "https://moneymastery.com", desc: "Personal finance and investing strategy" },
-  { name: "AI for SMB", href: "https://aiforsmb.com", desc: "Automate bookkeeping and tax workflows" },
+  { name: "AI for SMB", href: "https://aiforsmb.com", desc: "Bookkeeping and tax workflow tools" },
   { name: "PM101toPro", href: "https://pm101topro.com", desc: "Project scope and client management" },
 ] as const
 
@@ -49,15 +49,14 @@ export function Close() {
             Start with the free bookkeeping course.
           </h2>
           <p className="mt-3 max-w-xl text-craft-muted">
-            Plans and paid templates live on Pricing and Templates, not on
-            the first screen.
+            Plans are on Pricing. Paid worksheets are on Templates.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/learn"
               className="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-700 active:scale-[0.96]"
             >
-              Start free bookkeeping lesson
+              Start the chart of accounts lesson
             </Link>
             <Link
               href="/pricing"

@@ -12,9 +12,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Allison's Accounting Assistance — Accounting help that actually makes sense",
+  title: "Allison's Accounting Assistance — GST, BAS, and month-end close",
   description:
-    "Courses, templates, and tools for small business bookkeeping, tax prep, payroll, and business setup. Free resources and pro templates.",
+    "Written Bookkeeping Basics for GST coding and month-end close. Worksheets and tax calculators when you need the file.",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
