@@ -15,8 +15,8 @@ export function ProductStillFrame({
       <figcaption className="border-b border-craft-border px-4 py-2 text-xs text-craft-muted">
         {caption}
       </figcaption>
-      <div className={`relative overflow-hidden ${tall ? "h-64 sm:h-72" : "h-44 sm:h-56 md:h-60"}`}>
-        <div className="kickoff-pan origin-top-left">
+      <div className={`relative overflow-hidden ${tall ? "h-64 sm:h-72" : "h-52 sm:h-64 md:h-72"}`}>
+        <div className="origin-top-left">
           <ProductStill />
         </div>
       </div>

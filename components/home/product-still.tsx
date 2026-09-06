@@ -2,7 +2,8 @@ import { Check, Circle, PlayCircle } from "lucide-react"
 
 /**
  * Frozen still of the Bookkeeping Basics lesson viewer.
- * Copy is real course language from /learn. Not stock photography.
+ * Unique Allisons motion: ledger-line highlight + GST column tally (5–8s).
+ * No currency symbols. Copy is course language, not comedy.
  */
 const SIDEBAR = [
   { title: "What the books actually are", done: true, current: false },
@@ -10,6 +11,14 @@ const SIDEBAR = [
   { title: "Double-entry in plain English", done: false, current: false },
   { title: "Bank reconciliation", done: false, current: false },
   { title: "Month-end close", done: false, current: false },
+] as const
+
+const LEDGER = [
+  { code: "4000", account: "Sales income", gst: "GST" },
+  { code: "4100", account: "Interest received", gst: "FRE" },
+  { code: "5000", account: "Cost of goods", gst: "GST" },
+  { code: "6100", account: "Bank fees", gst: "FRE" },
+  { code: "6200", account: "Rent", gst: "GST" },
 ] as const
 
 export function ProductStill() {
@@ -48,27 +57,59 @@ export function ProductStill() {
           </ol>
         </aside>
 
-        <div className="p-6">
+        <div className="p-4">
           <p className="text-xs text-[#8B9BB4]">Lesson 2 of 8 · written</p>
-          <p className="mt-2 text-2xl font-semibold tracking-tight">
+          <p className="mt-1 text-lg font-semibold tracking-tight">
             Chart of accounts
           </p>
-          <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#B7C3D6]">
-            A chart of accounts is the named list of buckets your money moves
-            through — income, cost of goods, operating expenses, assets,
-            liabilities, and equity. If you leave this lesson and do one thing,
-            write the list for your business before you enter another receipt.
+          <p className="mt-1 max-w-xl text-[11px] leading-relaxed text-[#B7C3D6]">
+            GST belongs in its own column. Code the list before the BAS is due.
           </p>
-          <p className="mt-6 text-sm font-semibold">What the list actually does</p>
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#B7C3D6]">
-            It tells you where every dollar belongs so the same kind of spend
-            does not land in three different places. Without it, bank feeds
-            still import — they just import into a pile you cannot file from.
-          </p>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#B7C3D6]">
-            Start small. Ten to twenty accounts is enough for a sole
-            proprietor. Add a bucket only when a real transaction has nowhere
-            honest to go.
+
+          <table className="ledger-table mt-3 w-full border-collapse text-[11px]">
+            <caption className="sr-only">
+              Chart of accounts with GST codes. Highlight walks each ledger
+              line; the GST column tallies coded rows.
+            </caption>
+            <thead>
+              <tr className="border-b border-[#243049] text-left text-[10px] uppercase tracking-wider text-[#8B9BB4]">
+                <th className="w-14 py-1.5 font-medium">Code</th>
+                <th className="py-1.5 font-medium">Account</th>
+                <th className="w-14 py-1.5 text-right font-medium">GST</th>
+              </tr>
+            </thead>
+            <tbody>
+              {LEDGER.map((row, index) => (
+                <tr
+                  key={row.code}
+                  className="ledger-row border-b border-[#1B2438]"
+                  style={{ animationDelay: `${index * 1.3}s` }}
+                >
+                  <td className="py-1.5 font-mono tabular-nums text-[#8B9BB4]">
+                    {row.code}
+                  </td>
+                  <td className="py-1.5 text-[#E8EEF7]">{row.account}</td>
+                  <td
+                    className={
+                      row.gst === "GST"
+                        ? "ledger-gst-cell py-1.5 text-right font-medium tabular-nums text-[#67e8f9]"
+                        : "py-1.5 text-right tabular-nums text-[#8B9BB4]"
+                    }
+                    style={
+                      row.gst === "GST"
+                        ? { animationDelay: `${index * 1.3}s` }
+                        : undefined
+                    }
+                  >
+                    {row.gst}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <p className="ledger-gst-tally mt-2 text-[11px] text-[#8B9BB4]">
+            GST-coded <span className="ledger-gst-count" />
           </p>
         </div>
       </div>

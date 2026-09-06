@@ -122,20 +122,71 @@ html.home-dark body {
   }
 }
 
-@keyframes kickoff-pan {
-  0% { transform: scale(1.12) translate(2.4%, 1.6%); }
-  100% { transform: scale(1.12) translate(-3.2%, -2.4%); }
+/* Allisons-only product motion: 6.5s ledger-line scan + GST tally.
+   Dry accounting. No bounce, no cream, no currency. */
+@keyframes ledger-row-on {
+  0%,
+  16% {
+    background: rgba(37, 99, 235, 0.2);
+    box-shadow: inset 2px 0 0 #2563eb;
+  }
+  22%,
+  100% {
+    background: transparent;
+    box-shadow: none;
+  }
 }
 
-.kickoff-pan {
-  animation: kickoff-pan 28s ease-in-out infinite alternate;
-  will-change: transform;
+@keyframes ledger-gst-tick {
+  0%,
+  16% {
+    color: #e8eef7;
+    background: rgba(34, 211, 238, 0.16);
+  }
+  22%,
+  100% {
+    color: #67e8f9;
+    background: transparent;
+  }
+}
+
+@keyframes ledger-gst-tally {
+  0%,
+  39.9% {
+    content: "1 / 3";
+  }
+  40%,
+  79.9% {
+    content: "2 / 3";
+  }
+  80%,
+  100% {
+    content: "3 / 3";
+  }
+}
+
+.ledger-row {
+  animation: ledger-row-on 6.5s ease-in-out infinite;
+}
+
+.ledger-gst-cell {
+  animation: ledger-gst-tick 6.5s ease-in-out infinite;
+}
+
+.ledger-gst-count::after {
+  content: "1 / 3";
+  font-variant-numeric: tabular-nums;
+  color: #67e8f9;
+  animation: ledger-gst-tally 6.5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kickoff-pan {
+  .ledger-row,
+  .ledger-gst-cell,
+  .ledger-gst-count::after {
     animation: none;
-    transform: none;
-    will-change: auto;
+  }
+  .ledger-gst-count::after {
+    content: "3 / 3";
   }
 }
