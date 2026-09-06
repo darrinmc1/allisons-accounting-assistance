@@ -48,15 +48,15 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-6 px-4 py-8 md:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,32rem)] lg:gap-12 lg:py-16">
         <div className="min-w-0">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-craft-teal sm:text-sm">
-            Bookkeeping Basics · Chart of accounts
+            Written bookkeeping course · GST lessons + templates
           </p>
           <h1 className="mt-3 max-w-[18ch] text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl">
             Close the books without guessing the GST column.
           </h1>
           <p className="mt-4 hidden max-w-xl text-pretty text-base leading-relaxed text-craft-muted sm:block md:text-lg">
-            GST belongs in its own column before the BAS is due. The free
-            written course starts at the chart of accounts, then month-end
-            close.
+            A written Bookkeeping Basics course: GST chart-of-accounts
+            lessons, then month-end close. Matching templates sit next to
+            the lessons.
           </p>
         </div>
 
@@ -73,14 +73,14 @@ export function Hero() {
 
         <div className="min-w-0">
           <p className="max-w-xl text-sm leading-relaxed text-craft-muted sm:hidden">
-            GST in its own column, then month-end close.
+            Written GST chart-of-accounts lessons + templates.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:mt-0 sm:flex-row sm:flex-wrap">
             <Link
               href="/learn"
               className="inline-flex items-center justify-center rounded-lg bg-brand-600 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-brand-700 active:scale-[0.96]"
             >
-              Start the chart of accounts lesson
+              Start the written chart of accounts lesson
             </Link>
             <Link
               href="/templates"

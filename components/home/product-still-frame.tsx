@@ -1,7 +1,7 @@
 import { ProductStill } from "@/components/home/product-still"
 
 export function ProductStillFrame({
-  caption = "Lesson · Chart of accounts",
+  caption = "Written lesson · GST chart of accounts",
   tall = false,
 }: {
   caption?: string
