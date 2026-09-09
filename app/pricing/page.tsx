@@ -1,168 +1,175 @@
 import Link from "next/link"
+import { Check, X } from "lucide-react"
 
-const pricingSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Allison's Accounting Assistance Pricing Plans",
-  "description": "Affordable accounting courses, templates, and tools for small business owners.",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "item": {
-        "@type": "Offer",
-        "name": "Starter Plan",
-        "description": "Access to free courses and basic templates for small business owners just getting started with accounting.",
-        "price": "0",
-        "priceCurrency": "USD",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "price": "0",
-          "priceCurrency": "USD",
-          "billingIncrement": "month"
-        },
-        "availability": "https://schema.org/InStock",
-        "url": "https://allisonsaccounting.com/pricing"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Offer",
-        "name": "Pro Plan",
-        "description": "Full access to all accounting courses, premium templates, and tools for growing small businesses.",
-        "price": "29",
-        "priceCurrency": "USD",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "price": "29",
-          "priceCurrency": "USD",
-          "billingIncrement": "month"
-        },
-        "availability": "https://schema.org/InStock",
-        "url": "https://allisonsaccounting.com/pricing"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Offer",
-        "name": "Annual Plan",
-        "description": "Full access to all accounting courses, premium templates, and tools — billed annually for maximum savings.",
-        "price": "249",
-        "priceCurrency": "USD",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "price": "249",
-          "priceCurrency": "USD",
-          "billingIncrement": "year"
-        },
-        "availability": "https://schema.org/InStock",
-        "url": "https://allisonsaccounting.com/pricing"
-      }
-    }
-  ]
-}
+const tiers = [
+  {
+    name: "Free",
+    price: "$0",
+    period: "forever",
+    description: "Get started with the essentials — no credit card required.",
+    cta: "Get Started Free",
+    ctaHref: "/sign-up",
+    highlight: false,
+    features: [
+      { text: "Access to all free blog articles", included: true },
+      { text: "1 starter bookkeeping template", included: true },
+      { text: "Quarterly tax due-date reminders", included: true },
+      { text: "Basic tax deduction checklist", included: true },
+      { text: "Full template library (20+ templates)", included: false },
+      { text: "All premium courses", included: false },
+      { text: "S-Corp savings calculator", included: false },
+      { text: "Priority email support", included: false },
+      { text: "1:1 Setup Session (60 min)", included: false },
+    ],
+  },
+  {
+    name: "Pro",
+    price: "$29",
+    period: "per month",
+    description: "Everything you need to run clean books and stop overpaying on taxes.",
+    cta: "Start Pro — 7 Days Free",
+    ctaHref: "/sign-up?plan=pro",
+    highlight: true,
+    features: [
+      { text: "Access to all free blog articles", included: true },
+      { text: "1 starter bookkeeping template", included: true },
+      { text: "Quarterly tax due-date reminders", included: true },
+      { text: "Basic tax deduction checklist", included: true },
+      { text: "Full template library (20+ templates)", included: true },
+      { text: "All premium courses", included: true },
+      { text: "S-Corp savings calculator", included: true },
+      { text: "Priority email support", included: true },
+      { text: "1:1 Setup Session (60 min)", included: true },
+    ],
+  },
+]
+
+const faqs = [
+  {
+    q: "How much can Pro members typically save on taxes?",
+    a: "Most small business owners who complete our tax strategy course identify $3,000–$12,000 in previously missed deductions. At $29/month, Pro pays for itself many times over.",
+  },
+  {
+    q: "Can I cancel anytime?",
+    a: "Yes. Cancel anytime from your account dashboard — no questions asked, no cancellation fees.",
+  },
+  {
+    q: "What's included in the 1:1 Setup Session?",
+    a: "A 60-minute video call with Allison to review your books, set up your chart of accounts, and build a custom tax-savings plan for your business.",
+  },
+  {
+    q: "Do you offer annual billing?",
+    a: "Yes — pay annually and get 2 months free ($290/year vs $348). Email us at hello@allisonsaccounting.com to switch.",
+  },
+]
 
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
-      />
+      {/* Header */}
       <div className="border-b bg-slate-50">
-        <div className="mx-auto max-w-3xl px-4 md:px-6 py-16">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 py-16 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Pricing</p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Simple, transparent pricing</h1>
-          <p className="text-lg text-slate-600">
-            No surprise fees. No confusing tiers. Just straightforward access to everything you need to get your accounting under control.
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">
+            Simple pricing. Serious savings.
+          </h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Most Pro members recover their subscription cost in the first week — just from deductions they didn&apos;t know they were missing.
           </p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-3xl px-4 md:px-6 py-12">
-        <div className="grid gap-6 md:grid-cols-3 mb-12">
-          <div className="rounded-xl border border-slate-200 p-6 flex flex-col">
-            <div className="mb-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500 mb-1">Starter</p>
-              <p className="text-4xl font-bold">Free</p>
-              <p className="text-sm text-slate-500 mt-1">Forever</p>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700 mb-6 flex-1">
-              <li>✓ Free courses</li>
-              <li>✓ Basic templates</li>
-              <li>✓ Tax calculators</li>
-              <li>✓ Blog access</li>
-            </ul>
-            <Link href="/sign-up" className="block text-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50">
-              Get started free
-            </Link>
-          </div>
+      {/* Pricing Cards */}
+      <div className="mx-auto max-w-4xl px-4 md:px-6 py-16">
+        <div className="grid gap-8 md:grid-cols-2">
+          {tiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={`rounded-2xl border p-8 flex flex-col ${
+                tier.highlight
+                  ? "border-brand-600 bg-brand-50 shadow-lg ring-2 ring-brand-600"
+                  : "border-slate-200 bg-white"
+              }`}
+            >
+              {tier.highlight && (
+                <div className="mb-4">
+                  <span className="inline-block rounded-full bg-brand-600 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white">
+                    Most Popular
+                  </span>
+                </div>
+              )}
+              <h2 className="text-2xl font-bold mb-1">{tier.name}</h2>
+              <div className="flex items-end gap-1 mb-2">
+                <span className="text-4xl font-extrabold text-slate-900">{tier.price}</span>
+                <span className="text-slate-500 mb-1">/{tier.period}</span>
+              </div>
+              <p className="text-sm text-slate-600 mb-6">{tier.description}</p>
 
-          <div className="rounded-xl border-2 border-brand-600 p-6 flex flex-col relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="bg-brand-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</span>
-            </div>
-            <div className="mb-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500 mb-1">Pro</p>
-              <p className="text-4xl font-bold">$29</p>
-              <p className="text-sm text-slate-500 mt-1">per month</p>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700 mb-6 flex-1">
-              <li>✓ Everything in Starter</li>
-              <li>✓ All premium courses</li>
-              <li>✓ All premium templates</li>
-              <li>✓ Priority support</li>
-              <li>✓ New content as it launches</li>
-            </ul>
-            <Link href="/sign-up" className="block text-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">
-              Start Pro plan
-            </Link>
-          </div>
+              <ul className="space-y-3 mb-8 flex-1">
+                {tier.features.map((f) => (
+                  <li key={f.text} className="flex items-start gap-3">
+                    {f.included ? (
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" />
+                    ) : (
+                      <X className="mt-0.5 h-4 w-4 shrink-0 text-slate-300" />
+                    )}
+                    <span
+                      className={`text-sm ${
+                        f.included ? "text-slate-700" : "text-slate-400"
+                      }`}
+                    >
+                      {f.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
 
-          <div className="rounded-xl border border-slate-200 p-6 flex flex-col">
-            <div className="mb-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500 mb-1">Annual</p>
-              <p className="text-4xl font-bold">$249</p>
-              <p className="text-sm text-slate-500 mt-1">per year — save $99</p>
+              <Link
+                href={tier.ctaHref}
+                className={`block w-full rounded-lg px-6 py-3 text-center text-sm font-bold transition-colors ${
+                  tier.highlight
+                    ? "bg-brand-600 text-white hover:bg-brand-700"
+                    : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                }`}
+              >
+                {tier.cta}
+              </Link>
             </div>
-            <ul className="space-y-2 text-sm text-slate-700 mb-6 flex-1">
-              <li>✓ Everything in Pro</li>
-              <li>✓ Two months free</li>
-              <li>✓ Early access to new tools</li>
-              <li>✓ Annual tax planning checklist</li>
-            </ul>
-            <Link href="/sign-up" className="block text-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50">
-              Start Annual plan
-            </Link>
-          </div>
+          ))}
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 mb-8">
-          <h2 className="font-bold text-lg mb-2">Frequently asked questions</h2>
-          <div className="space-y-4 mt-4">
-            {[
-              { q: "Can I cancel anytime?", a: "Yes. Cancel your monthly plan at any time with no penalties. Annual plans are refundable within 30 days." },
-              { q: "Is there a free trial?", a: "The Starter plan is free forever. You can explore free courses and templates before upgrading." },
-              { q: "What payment methods do you accept?", a: "We accept all major credit cards via Stripe. No PayPal at this time." },
-              { q: "Do you offer refunds?", a: "Yes — if you're not satisfied within 30 days of purchase, we'll refund you in full. No questions asked." },
-            ].map((item) => (
-              <div key={item.q}>
-                <p className="font-semibold text-sm">{item.q}</p>
-                <p className="text-sm text-slate-600 mt-1">{item.a}</p>
+        {/* ROI callout */}
+        <div className="mt-12 rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-2">The math is simple</p>
+          <h3 className="text-2xl font-bold mb-3">Pro costs $348/year. The average member saves $6,400.</h3>
+          <p className="text-slate-600 max-w-xl mx-auto text-sm">
+            Between missed deductions, cleaner books, and smarter entity structure, our Pro members consistently
+            come out thousands ahead — often in the first month.
+          </p>
+        </div>
+
+        {/* FAQ */}
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold mb-8 text-center">Frequently asked questions</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {faqs.map((faq) => (
+              <div key={faq.q} className="rounded-xl border border-slate-200 p-6">
+                <h3 className="font-bold mb-2">{faq.q}</h3>
+                <p className="text-sm text-slate-600 leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center">
-          <p className="text-sm text-slate-500">
-            Questions about pricing?{" "}
-            <Link href="/contact" className="font-semibold text-brand-600 hover:text-brand-700">Contact us</Link>
-          </p>
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <p className="text-slate-600 mb-4 text-sm">Still have questions?</p>
+          <Link
+            href="/contact"
+            className="text-sm font-semibold text-brand-600 hover:text-brand-700"
+          >
+            Contact us →
+          </Link>
         </div>
       </div>
     </div>
