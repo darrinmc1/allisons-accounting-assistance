@@ -1,5 +1,13 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import {
+  offerAvailability,
+  PAYMENTS_WAITLIST_HREF,
+  paymentsEnabled,
+} from "@/lib/payments"
+
+const checkoutOpen = paymentsEnabled()
+const availability = offerAvailability()
 
 const coursesSchema = {
   "@context": "https://schema.org",
@@ -52,7 +60,7 @@ const coursesSchema = {
           "@type": "Offer",
           "price": "29",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "availability": availability
         }
       }
     },
@@ -76,7 +84,7 @@ const coursesSchema = {
           "@type": "Offer",
           "price": "29",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "availability": availability
         }
       }
     },
@@ -100,7 +108,7 @@ const coursesSchema = {
           "@type": "Offer",
           "price": "29",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "availability": availability
         }
       }
     }
@@ -148,7 +156,7 @@ const courses = [
 
 export default function LearnPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" data-payments={checkoutOpen ? "live" : "gated"}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesSchema) }}
@@ -158,7 +166,9 @@ export default function LearnPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Courses</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Learn accounting at your own pace</h1>
           <p className="text-lg text-slate-600">
-            Practical, jargon-free courses built for small business owners — not accountants. Start free, upgrade when you&apos;re ready.
+            {checkoutOpen
+              ? "Practical, jargon-free courses built for small business owners — not accountants. Start free, upgrade when you&apos;re ready."
+              : "Practical, jargon-free courses built for small business owners. Free courses stay open. Pro unlock is on the waitlist until paid checkout is enabled."}
           </p>
         </div>
       </div>
@@ -192,10 +202,10 @@ export default function LearnPage() {
                   </div>
                 </div>
                 <Link
-                  href={course.free ? "/sign-up" : "/pricing"}
+                  href={course.free ? "/sign-up" : checkoutOpen ? "/pricing" : PAYMENTS_WAITLIST_HREF}
                   className="flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
                 >
-                  {course.free ? "Start free" : "Unlock with Pro"}
+                  {course.free ? "Start free" : checkoutOpen ? "Unlock with Pro" : "Join waitlist"}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -204,10 +214,19 @@ export default function LearnPage() {
         </div>
 
         <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6 text-center">
-          <h2 className="font-bold text-lg mb-2">Ready to unlock everything?</h2>
-          <p className="text-sm text-slate-600 mb-4">Get access to all courses, templates, and tools with a Pro plan.</p>
-          <Link href="/pricing" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700">
-            View pricing <ArrowRight className="h-4 w-4" />
+          <h2 className="font-bold text-lg mb-2">
+            {checkoutOpen ? "Ready to unlock everything?" : "Pro courses are on the waitlist"}
+          </h2>
+          <p className="text-sm text-slate-600 mb-4">
+            {checkoutOpen
+              ? "Get access to all courses, templates, and tools with a Pro plan."
+              : "Plans stay listed on Pricing. Buy and Stripe stay parked until checkout is enabled."}
+          </p>
+          <Link
+            href={checkoutOpen ? "/pricing" : PAYMENTS_WAITLIST_HREF}
+            className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700"
+          >
+            {checkoutOpen ? "View pricing" : "Join waitlist"} <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

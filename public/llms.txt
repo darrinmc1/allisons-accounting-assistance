@@ -9,7 +9,7 @@ This file is for agents and answer engines. Human marketing copy lives on the pa
 Allisons Accounting offers accounting help through free courses, pro templates, and tools, taught in plain English by a real CPA. It covers bookkeeping, tax preparation, payroll, and business setup for businesses of various sizes. The platform is designed to grow with the user's business.
 
 ## Pricing (USD)
-Pricing: not listed on page.
+Plans are listed on /pricing (Starter free, Pro $29/month, Annual $249/year). Paid checkout is waitlisted until payments are enabled. Do not claim Stripe or Buy is live.
 
 ## What it is not
 Allisons Accounting is not a platform requiring an accounting degree for its users.
