@@ -1,4 +1,13 @@
 import Link from "next/link"
+import { PaymentWaitlistForm } from "@/components/payment-waitlist"
+import {
+  offerAvailability,
+  PAYMENTS_WAITLIST_HREF,
+  paymentsEnabled,
+} from "@/lib/payments"
+
+const checkoutOpen = paymentsEnabled()
+const availability = offerAvailability()
 
 const pricingSchema = {
   "@context": "https://schema.org",
@@ -21,7 +30,7 @@ const pricingSchema = {
           "priceCurrency": "USD",
           "billingIncrement": "month"
         },
-        "availability": "https://schema.org/InStock",
+        "availability": availability,
         "url": "https://allisonsaccounting.com/pricing"
       }
     },
@@ -40,7 +49,7 @@ const pricingSchema = {
           "priceCurrency": "USD",
           "billingIncrement": "month"
         },
-        "availability": "https://schema.org/InStock",
+        "availability": availability,
         "url": "https://allisonsaccounting.com/pricing"
       }
     },
@@ -59,16 +68,20 @@ const pricingSchema = {
           "priceCurrency": "USD",
           "billingIncrement": "year"
         },
-        "availability": "https://schema.org/InStock",
+        "availability": availability,
         "url": "https://allisonsaccounting.com/pricing"
       }
     }
   ]
 }
 
+function paidHref(liveHref: string) {
+  return checkoutOpen ? liveHref : PAYMENTS_WAITLIST_HREF
+}
+
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white" data-payments={checkoutOpen ? "live" : "gated"}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
@@ -78,12 +91,24 @@ export default function PricingPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Pricing</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Simple, transparent pricing</h1>
           <p className="text-lg text-slate-600">
-            No surprise fees. No confusing tiers. Just straightforward access to everything you need to get your accounting under control.
+            {checkoutOpen
+              ? "No surprise fees. No confusing tiers. Just straightforward access to everything you need to get your accounting under control."
+              : "Plans stay listed. Paid checkout is parked on the waitlist until Stripe is enabled."}
           </p>
         </div>
       </div>
 
       <div className="mx-auto max-w-3xl px-4 md:px-6 py-12">
+        {!checkoutOpen ? (
+          <div id="waitlist" className="rounded-xl border border-slate-200 bg-slate-50 p-6 mb-12">
+            <h2 className="font-bold text-lg mb-2">Join the waitlist</h2>
+            <p className="text-sm text-slate-600 mb-4">
+              Buy and Stripe paths are parked, not removed. Nothing is charged today. We will email you when paid checkout opens.
+            </p>
+            <PaymentWaitlistForm />
+          </div>
+        ) : null}
+
         <div className="grid gap-6 md:grid-cols-3 mb-12">
           <div className="rounded-xl border border-slate-200 p-6 flex flex-col">
             <div className="mb-4">
@@ -118,8 +143,11 @@ export default function PricingPage() {
               <li>✓ Priority support</li>
               <li>✓ New content as it launches</li>
             </ul>
-            <Link href="/sign-up" className="block text-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700">
-              Start Pro plan
+            <Link
+              href={paidHref("/sign-up")}
+              className="block text-center rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+            >
+              {checkoutOpen ? "Start Pro plan" : "Join waitlist"}
             </Link>
           </div>
 
@@ -135,8 +163,11 @@ export default function PricingPage() {
               <li>✓ Early access to new tools</li>
               <li>✓ Annual tax planning checklist</li>
             </ul>
-            <Link href="/sign-up" className="block text-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50">
-              Start Annual plan
+            <Link
+              href={paidHref("/sign-up")}
+              className="block text-center rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold hover:bg-slate-50"
+            >
+              {checkoutOpen ? "Start Annual plan" : "Join waitlist"}
             </Link>
           </div>
         </div>
@@ -147,8 +178,18 @@ export default function PricingPage() {
             {[
               { q: "Can I cancel anytime?", a: "Yes. Cancel your monthly plan at any time with no penalties. Annual plans are refundable within 30 days." },
               { q: "Is there a free trial?", a: "The Starter plan is free forever. You can explore free courses and templates before upgrading." },
-              { q: "What payment methods do you accept?", a: "We accept all major credit cards via Stripe. No PayPal at this time." },
-              { q: "Do you offer refunds?", a: "Yes — if you're not satisfied within 30 days of purchase, we'll refund you in full. No questions asked." },
+              {
+                q: "What payment methods do you accept?",
+                a: checkoutOpen
+                  ? "We accept all major credit cards via Stripe. No PayPal at this time."
+                  : "Card checkout will run through Stripe when payments open. Nothing is charged today — join the waitlist.",
+              },
+              {
+                q: "Do you offer refunds?",
+                a: checkoutOpen
+                  ? "Yes — if you're not satisfied within 30 days of purchase, we'll refund you in full. No questions asked."
+                  : "A 30-day refund will apply once paid checkout is live. There is nothing to charge or refund today.",
+              },
             ].map((item) => (
               <div key={item.q}>
                 <p className="font-semibold text-sm">{item.q}</p>

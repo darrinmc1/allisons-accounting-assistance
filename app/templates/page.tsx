@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { CheckCircle, ArrowRight, Download, FileText, Receipt, Calculator, DollarSign, Users, FileSpreadsheet } from "lucide-react"
+import { PAYMENTS_WAITLIST_HREF, paymentsEnabled } from "@/lib/payments"
 
 const iconMap: Record<string, React.ReactNode> = {
   FileText: <FileText className="h-6 w-6" />,
@@ -88,9 +89,10 @@ const templates = [
 export default function TemplatesPage() {
   const freeTemplates = templates.filter((t) => t.tier === "free")
   const proTemplates = templates.filter((t) => t.tier === "pro")
+  const checkoutOpen = paymentsEnabled()
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50" data-payments={checkoutOpen ? "live" : "gated"}>
       <section className="border-b bg-white">
         <div className="mx-auto max-w-6xl px-4 md:px-6 py-16">
           <div className="max-w-3xl space-y-4">
@@ -146,7 +148,11 @@ export default function TemplatesPage() {
               <h2 className="text-2xl font-bold">Pro Templates</h2>
               <span className="text-xs font-bold bg-brand-100 text-brand-700 px-2 py-1 rounded">PRO</span>
             </div>
-            <p className="text-sm text-slate-500">Everything you need to manage your business finances like a pro.</p>
+            <p className="text-sm text-slate-500">
+              {checkoutOpen
+                ? "Everything you need to manage your business finances like a pro."
+                : "Catalog prices stay listed. Buy Now is parked on the waitlist until Stripe is enabled."}
+            </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {proTemplates.map((tpl) => (
@@ -168,9 +174,18 @@ export default function TemplatesPage() {
                   ))}
                 </ul>
                 <div className="mt-auto">
-                  <button className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white w-full active:scale-[0.96] transition-transform hover:bg-brand-700 transition-colors">
-                    Buy Now - {tpl.price} <ArrowRight className="h-4 w-4" />
-                  </button>
+                  {checkoutOpen ? (
+                    <button className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white w-full active:scale-[0.96] transition-transform hover:bg-brand-700 transition-colors">
+                      Buy Now - {tpl.price} <ArrowRight className="h-4 w-4" />
+                    </button>
+                  ) : (
+                    <Link
+                      href={PAYMENTS_WAITLIST_HREF}
+                      className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white w-full hover:bg-brand-700"
+                    >
+                      Join waitlist <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
