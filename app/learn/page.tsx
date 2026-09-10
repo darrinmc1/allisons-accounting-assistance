@@ -1,11 +1,11 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Clock, BookOpen } from "lucide-react"
 
 const coursesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Accounting Courses for Small Business Owners",
-  "description": "Free and premium accounting courses created by a licensed CPA to help small business owners manage their books, taxes, and finances.",
+  "name": "Free Accounting Courses by Allison's Accounting Assistance",
+  "description": "Free accounting courses for small business owners covering bookkeeping basics, tax preparation, payroll, and more.",
   "url": "https://allisonsaccounting.com/learn",
   "itemListElement": [
     {
@@ -13,22 +13,20 @@ const coursesSchema = {
       "position": 1,
       "item": {
         "@type": "Course",
-        "name": "Bookkeeping Basics for Small Business Owners",
-        "description": "Learn the fundamentals of bookkeeping: chart of accounts, debits and credits, reconciliation, and more — explained in plain English.",
+        "name": "Bookkeeping Basics for Small Business",
+        "description": "Learn the fundamentals of bookkeeping including debits, credits, chart of accounts, and monthly close.",
+        "url": "https://allisonsaccounting.com/learn",
         "provider": {
           "@type": "Organization",
           "name": "Allison's Accounting Assistance",
           "url": "https://allisonsaccounting.com"
         },
         "educationalLevel": "Beginner",
-        "teaches": "Bookkeeping fundamentals for small business owners",
         "isAccessibleForFree": true,
-        "url": "https://allisonsaccounting.com/learn",
         "offers": {
           "@type": "Offer",
           "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "priceCurrency": "USD"
         }
       }
     },
@@ -37,22 +35,20 @@ const coursesSchema = {
       "position": 2,
       "item": {
         "@type": "Course",
-        "name": "Small Business Tax Essentials",
-        "description": "Understand quarterly estimated taxes, deductions, self-employment tax, and how to prepare for tax season without the stress.",
+        "name": "Small Business Tax Prep 101",
+        "description": "Understand how to prepare for tax season, maximize deductions, and avoid common mistakes.",
+        "url": "https://allisonsaccounting.com/learn",
         "provider": {
           "@type": "Organization",
           "name": "Allison's Accounting Assistance",
           "url": "https://allisonsaccounting.com"
         },
         "educationalLevel": "Beginner",
-        "teaches": "Small business tax planning and compliance",
-        "isAccessibleForFree": false,
-        "url": "https://allisonsaccounting.com/learn",
+        "isAccessibleForFree": true,
         "offers": {
           "@type": "Offer",
-          "price": "29",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "price": "0",
+          "priceCurrency": "USD"
         }
       }
     },
@@ -61,22 +57,20 @@ const coursesSchema = {
       "position": 3,
       "item": {
         "@type": "Course",
-        "name": "Cash Flow Management for Freelancers & Solopreneurs",
-        "description": "Master cash flow forecasting, invoicing best practices, and how to build a financial cushion so you never miss payroll — even your own.",
+        "name": "Understanding Your Financial Statements",
+        "description": "Learn to read and interpret your profit & loss, balance sheet, and cash flow statement.",
+        "url": "https://allisonsaccounting.com/learn",
         "provider": {
           "@type": "Organization",
           "name": "Allison's Accounting Assistance",
           "url": "https://allisonsaccounting.com"
         },
-        "educationalLevel": "Intermediate",
-        "teaches": "Cash flow management and forecasting for self-employed individuals",
-        "isAccessibleForFree": false,
-        "url": "https://allisonsaccounting.com/learn",
+        "educationalLevel": "Beginner",
+        "isAccessibleForFree": true,
         "offers": {
           "@type": "Offer",
-          "price": "29",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "price": "0",
+          "priceCurrency": "USD"
         }
       }
     },
@@ -85,22 +79,20 @@ const coursesSchema = {
       "position": 4,
       "item": {
         "@type": "Course",
-        "name": "Payroll Setup & Compliance",
-        "description": "Step-by-step guidance on setting up payroll for your first employee, understanding payroll taxes, and staying compliant with federal and state rules.",
+        "name": "Quarterly Estimated Taxes Made Simple",
+        "description": "Step-by-step guide to calculating and paying quarterly estimated taxes to avoid IRS penalties.",
+        "url": "https://allisonsaccounting.com/learn",
         "provider": {
           "@type": "Organization",
           "name": "Allison's Accounting Assistance",
           "url": "https://allisonsaccounting.com"
         },
-        "educationalLevel": "Intermediate",
-        "teaches": "Payroll setup, payroll taxes, and compliance for small businesses",
-        "isAccessibleForFree": false,
-        "url": "https://allisonsaccounting.com/learn",
+        "educationalLevel": "Beginner",
+        "isAccessibleForFree": true,
         "offers": {
           "@type": "Offer",
-          "price": "29",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "price": "0",
+          "priceCurrency": "USD"
         }
       }
     }
@@ -109,40 +101,58 @@ const coursesSchema = {
 
 const courses = [
   {
-    title: "Bookkeeping Basics for Small Business Owners",
+    title: "Bookkeeping Basics for Small Business",
+    desc: "Learn the fundamentals of bookkeeping including debits, credits, chart of accounts, and monthly close.",
+    duration: "2h 15m",
+    lessons: 12,
     level: "Beginner",
     free: true,
-    duration: "2.5 hours",
-    lessons: 8,
-    description: "Learn the fundamentals of bookkeeping: chart of accounts, debits and credits, reconciliation, and more — explained in plain English.",
-    tags: ["Bookkeeping", "Fundamentals"],
+    slug: "bookkeeping-basics",
   },
   {
-    title: "Small Business Tax Essentials",
-    level: "Beginner",
-    free: false,
-    duration: "3 hours",
-    lessons: 10,
-    description: "Understand quarterly estimated taxes, deductions, self-employment tax, and how to prepare for tax season without the stress.",
-    tags: ["Taxes", "Deductions"],
-  },
-  {
-    title: "Cash Flow Management for Freelancers & Solopreneurs",
-    level: "Intermediate",
-    free: false,
-    duration: "2 hours",
-    lessons: 7,
-    description: "Master cash flow forecasting, invoicing best practices, and how to build a financial cushion so you never miss payroll — even your own.",
-    tags: ["Cash Flow", "Freelance"],
-  },
-  {
-    title: "Payroll Setup & Compliance",
-    level: "Intermediate",
-    free: false,
-    duration: "2.5 hours",
+    title: "Small Business Tax Prep 101",
+    desc: "Understand how to prepare for tax season, maximize deductions, and avoid common mistakes.",
+    duration: "1h 45m",
     lessons: 9,
-    description: "Step-by-step guidance on setting up payroll for your first employee, understanding payroll taxes, and staying compliant with federal and state rules.",
-    tags: ["Payroll", "Compliance"],
+    level: "Beginner",
+    free: true,
+    slug: "tax-prep-101",
+  },
+  {
+    title: "Understanding Your Financial Statements",
+    desc: "Learn to read and interpret your profit & loss, balance sheet, and cash flow statement.",
+    duration: "1h 30m",
+    lessons: 8,
+    level: "Beginner",
+    free: true,
+    slug: "financial-statements",
+  },
+  {
+    title: "Quarterly Estimated Taxes Made Simple",
+    desc: "Step-by-step guide to calculating and paying quarterly estimated taxes to avoid IRS penalties.",
+    duration: "55m",
+    lessons: 5,
+    level: "Beginner",
+    free: true,
+    slug: "quarterly-taxes",
+  },
+  {
+    title: "Payroll Fundamentals",
+    desc: "Everything you need to know to run payroll correctly — from setup to year-end W-2s.",
+    duration: "2h 30m",
+    lessons: 14,
+    level: "Intermediate",
+    free: false,
+    slug: "payroll-fundamentals",
+  },
+  {
+    title: "S-Corp Election & Tax Strategy",
+    desc: "Is an S-Corp right for your business? Learn how to evaluate, elect, and maximize the tax benefits.",
+    duration: "1h 50m",
+    lessons: 10,
+    level: "Intermediate",
+    free: false,
+    slug: "scorp-strategy",
   },
 ]
 
@@ -154,60 +164,64 @@ export default function LearnPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesSchema) }}
       />
       <div className="border-b bg-slate-50">
-        <div className="mx-auto max-w-3xl px-4 md:px-6 py-16">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 py-16">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Courses</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Learn accounting at your own pace</h1>
-          <p className="text-lg text-slate-600">
-            Practical, jargon-free courses built for small business owners — not accountants. Start free, upgrade when you&apos;re ready.
+          <p className="text-lg text-slate-600 max-w-2xl">
+            Practical, no-jargon courses built for small business owners. Start free — no credit card required.
           </p>
         </div>
       </div>
 
-      <div className="mx-auto max-w-3xl px-4 md:px-6 py-12">
-        <div className="space-y-6">
+      <div className="mx-auto max-w-4xl px-4 md:px-6 py-12">
+        <div className="grid gap-6 md:grid-cols-2">
           {courses.map((course) => (
-            <div key={course.title} className="rounded-xl border border-slate-200 p-6">
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">{course.level}</span>
-                    {course.free ? (
-                      <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">Free</span>
-                    ) : (
-                      <span className="text-xs font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">Pro</span>
-                    )}
-                  </div>
-                  <h2 className="text-lg font-bold">{course.title}</h2>
-                </div>
-              </div>
-              <p className="text-sm text-slate-600 mb-4">{course.description}</p>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4 text-xs text-slate-500">
-                  <span>{course.duration}</span>
-                  <span>{course.lessons} lessons</span>
-                  <div className="flex gap-1">
-                    {course.tags.map((tag) => (
-                      <span key={tag} className="bg-slate-100 px-2 py-0.5 rounded-full">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-                <Link
-                  href={course.free ? "/sign-up" : "/pricing"}
-                  className="flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
+            <div key={course.slug} className="rounded-xl border border-slate-200 p-6 flex flex-col">
+              <div className="flex items-start justify-between mb-3">
+                <span
+                  className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                    course.free
+                      ? "bg-green-100 text-green-700"
+                      : "bg-brand-100 text-brand-700"
+                  }`}
                 >
-                  {course.free ? "Start free" : "Unlock with Pro"}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                  {course.free ? "Free" : "Pro"}
+                </span>
+                <span className="text-xs text-slate-500 font-medium">{course.level}</span>
               </div>
+              <h2 className="text-lg font-bold mb-2">{course.title}</h2>
+              <p className="text-sm text-slate-600 mb-4 flex-1">{course.desc}</p>
+              <div className="flex items-center gap-4 text-xs text-slate-500 mb-4">
+                <span className="flex items-center gap-1">
+                  <Clock className="h-3.5 w-3.5" />
+                  {course.duration}
+                </span>
+                <span className="flex items-center gap-1">
+                  <BookOpen className="h-3.5 w-3.5" />
+                  {course.lessons} lessons
+                </span>
+              </div>
+              <Link
+                href={course.free ? `/learn/${course.slug}` : "/pricing"}
+                className="flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
+              >
+                {course.free ? "Start course" : "Unlock with Pro"}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6 text-center">
-          <h2 className="font-bold text-lg mb-2">Ready to unlock everything?</h2>
-          <p className="text-sm text-slate-600 mb-4">Get access to all courses, templates, and tools with a Pro plan.</p>
-          <Link href="/pricing" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700">
-            View pricing <ArrowRight className="h-4 w-4" />
+        <div className="mt-10 rounded-xl border border-brand-200 bg-brand-50 p-6 text-center">
+          <h2 className="font-bold text-lg mb-2">Want access to all courses?</h2>
+          <p className="text-sm text-slate-600 mb-4">
+            Upgrade to Pro for $29/month and unlock every course, template, and monthly Q&amp;A call.
+          </p>
+          <Link
+            href="/pricing"
+            className="inline-flex items-center gap-1 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700"
+          >
+            See pricing <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
