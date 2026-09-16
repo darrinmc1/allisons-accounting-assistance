@@ -1,165 +1,78 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
+const courses = [
+  {
+    title: "Bookkeeping Basics for Australian Small Business",
+    level: "Beginner",
+    duration: "Self-paced",
+    lessons: 8,
+    description: "Learn the core bookkeeping workflow: source documents, chart of accounts, reconciliations, month-end checks and clean records.",
+    tags: ["Bookkeeping", "Records"],
+  },
+  {
+    title: "BAS & GST Fundamentals",
+    level: "Beginner",
+    duration: "Self-paced",
+    lessons: 8,
+    description: "Understand GST language, BAS preparation workflows and the records you need to keep organised before lodgement.",
+    tags: ["GST", "BAS", "ATO"],
+  },
+  {
+    title: "Cash Flow for Small Business",
+    level: "Beginner",
+    duration: "Self-paced",
+    lessons: 7,
+    description: "Build a simple cash-flow forecast covering receipts, suppliers, payroll, tax and other business obligations.",
+    tags: ["Cash Flow", "Forecasting"],
+  },
+  {
+    title: "Payroll, STP & PAYG Workflow",
+    level: "Intermediate",
+    duration: "Self-paced",
+    lessons: 9,
+    description: "A practical overview of payroll records, PAYG withholding, Single Touch Payroll reporting and employer super workflows.",
+    tags: ["Payroll", "STP", "PAYG"],
+  },
+  {
+    title: "Australian Business Structures",
+    level: "Beginner",
+    duration: "Self-paced",
+    lessons: 6,
+    description: "Understand the practical accounting differences between operating as a sole trader, partnership, company or trust before seeking advice on the right structure for you.",
+    tags: ["Structure", "Records"],
+  },
+]
+
 const coursesSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  "name": "Accounting Courses for Small Business Owners",
-  "description": "Free and premium accounting courses created by a licensed CPA to help small business owners manage their books, taxes, and finances.",
-  "url": "https://allisonsaccounting.com/learn",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "item": {
-        "@type": "Course",
-        "name": "Bookkeeping Basics for Small Business Owners",
-        "description": "Learn the fundamentals of bookkeeping: chart of accounts, debits and credits, reconciliation, and more — explained in plain English.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Allison's Accounting Assistance",
-          "url": "https://allisonsaccounting.com"
-        },
-        "educationalLevel": "Beginner",
-        "teaches": "Bookkeeping fundamentals for small business owners",
-        "isAccessibleForFree": true,
-        "url": "https://allisonsaccounting.com/learn",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        }
-      }
+  name: "Australian Small Business Accounting Guides",
+  description: "Free educational guides covering bookkeeping, BAS, GST, cash flow, payroll, STP and PAYG concepts for Australian small businesses.",
+  itemListElement: courses.map((course, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    item: {
+      "@type": "Course",
+      name: course.title,
+      description: course.description,
+      provider: { "@type": "Organization", name: "Allison's Accounting Assistance" },
+      educationalLevel: course.level,
+      isAccessibleForFree: true,
     },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Course",
-        "name": "Small Business Tax Essentials",
-        "description": "Understand quarterly estimated taxes, deductions, self-employment tax, and how to prepare for tax season without the stress.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Allison's Accounting Assistance",
-          "url": "https://allisonsaccounting.com"
-        },
-        "educationalLevel": "Beginner",
-        "teaches": "Small business tax planning and compliance",
-        "isAccessibleForFree": false,
-        "url": "https://allisonsaccounting.com/learn",
-        "offers": {
-          "@type": "Offer",
-          "price": "29",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Course",
-        "name": "Cash Flow Management for Freelancers & Solopreneurs",
-        "description": "Master cash flow forecasting, invoicing best practices, and how to build a financial cushion so you never miss payroll — even your own.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Allison's Accounting Assistance",
-          "url": "https://allisonsaccounting.com"
-        },
-        "educationalLevel": "Intermediate",
-        "teaches": "Cash flow management and forecasting for self-employed individuals",
-        "isAccessibleForFree": false,
-        "url": "https://allisonsaccounting.com/learn",
-        "offers": {
-          "@type": "Offer",
-          "price": "29",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Course",
-        "name": "Payroll Setup & Compliance",
-        "description": "Step-by-step guidance on setting up payroll for your first employee, understanding payroll taxes, and staying compliant with federal and state rules.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Allison's Accounting Assistance",
-          "url": "https://allisonsaccounting.com"
-        },
-        "educationalLevel": "Intermediate",
-        "teaches": "Payroll setup, payroll taxes, and compliance for small businesses",
-        "isAccessibleForFree": false,
-        "url": "https://allisonsaccounting.com/learn",
-        "offers": {
-          "@type": "Offer",
-          "price": "29",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    }
-  ]
+  })),
 }
-
-const courses = [
-  {
-    title: "Bookkeeping Basics for Small Business Owners",
-    level: "Beginner",
-    free: true,
-    duration: "2.5 hours",
-    lessons: 8,
-    description: "Learn the fundamentals of bookkeeping: chart of accounts, debits and credits, reconciliation, and more — explained in plain English.",
-    tags: ["Bookkeeping", "Fundamentals"],
-  },
-  {
-    title: "Small Business Tax Essentials",
-    level: "Beginner",
-    free: false,
-    duration: "3 hours",
-    lessons: 10,
-    description: "Understand quarterly estimated taxes, deductions, self-employment tax, and how to prepare for tax season without the stress.",
-    tags: ["Taxes", "Deductions"],
-  },
-  {
-    title: "Cash Flow Management for Freelancers & Solopreneurs",
-    level: "Intermediate",
-    free: false,
-    duration: "2 hours",
-    lessons: 7,
-    description: "Master cash flow forecasting, invoicing best practices, and how to build a financial cushion so you never miss payroll — even your own.",
-    tags: ["Cash Flow", "Freelance"],
-  },
-  {
-    title: "Payroll Setup & Compliance",
-    level: "Intermediate",
-    free: false,
-    duration: "2.5 hours",
-    lessons: 9,
-    description: "Step-by-step guidance on setting up payroll for your first employee, understanding payroll taxes, and staying compliant with federal and state rules.",
-    tags: ["Payroll", "Compliance"],
-  },
-]
 
 export default function LearnPage() {
   return (
     <div className="min-h-screen bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(coursesSchema) }} />
       <div className="border-b bg-slate-50">
         <div className="mx-auto max-w-3xl px-4 md:px-6 py-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Courses</p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Learn accounting at your own pace</h1>
-          <p className="text-lg text-slate-600">
-            Practical, jargon-free courses built for small business owners — not accountants. Start free, upgrade when you&apos;re ready.
-          </p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Australian small-business guides</p>
+          <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Understand the accounting workflow at your own pace</h1>
+          <p className="text-lg text-slate-600">Free, plain-English education around the records, reports and obligations Australian small businesses regularly encounter.</p>
+          <p className="mt-4 text-sm text-slate-500">General information only. For personalised tax, BAS, structure or lodgement advice, use an appropriately registered adviser.</p>
         </div>
       </div>
 
@@ -171,44 +84,28 @@ export default function LearnPage() {
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">{course.level}</span>
-                    {course.free ? (
-                      <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">Free</span>
-                    ) : (
-                      <span className="text-xs font-bold text-brand-700 bg-brand-50 px-2 py-0.5 rounded-full">Pro</span>
-                    )}
+                    <span className="text-xs font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">Free</span>
                   </div>
                   <h2 className="text-lg font-bold">{course.title}</h2>
                 </div>
               </div>
               <p className="text-sm text-slate-600 mb-4">{course.description}</p>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4 text-xs text-slate-500">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
                   <span>{course.duration}</span>
-                  <span>{course.lessons} lessons</span>
-                  <div className="flex gap-1">
-                    {course.tags.map((tag) => (
-                      <span key={tag} className="bg-slate-100 px-2 py-0.5 rounded-full">{tag}</span>
-                    ))}
-                  </div>
+                  <span>{course.lessons} lessons planned</span>
+                  {course.tags.map((tag) => <span key={tag} className="bg-slate-100 px-2 py-0.5 rounded-full">{tag}</span>)}
                 </div>
-                <Link
-                  href={course.free ? "/sign-up" : "/pricing"}
-                  className="flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700"
-                >
-                  {course.free ? "Start free" : "Unlock with Pro"}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                <Link href="/sign-up" className="flex items-center gap-1 text-sm font-semibold text-brand-600 hover:text-brand-700">Start free <ArrowRight className="h-4 w-4" /></Link>
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6 text-center">
-          <h2 className="font-bold text-lg mb-2">Ready to unlock everything?</h2>
-          <p className="text-sm text-slate-600 mb-4">Get access to all courses, templates, and tools with a Pro plan.</p>
-          <Link href="/pricing" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700">
-            View pricing <ArrowRight className="h-4 w-4" />
-          </Link>
+          <h2 className="font-bold text-lg mb-2">Paid access is not being promoted yet</h2>
+          <p className="text-sm text-slate-600 mb-4">The focus is getting the Australian curriculum and tools right first. Pricing will only be published once checkout is live and tested.</p>
+          <Link href="/templates" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-700">Browse free templates <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </div>
     </div>
