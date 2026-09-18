@@ -1,164 +1,175 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Receipt, Briefcase, Users, Calculator, FileText, CheckCircle } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 
-const features = [
+const pricingTiers = [
   {
-    title: "Bookkeeping without the fog",
-    description: "Track income and expenses, reconcile accounts, organise records and understand the reports your business relies on.",
-    icon: <BookOpen className="h-8 w-8" />,
+    name: "Free",
+    price: "$0",
+    period: "forever",
+    description: "Get started with the essentials at no cost.",
+    cta: "Get Started Free",
+    ctaHref: "/sign-up",
+    highlight: false,
+    features: [
+      "Free blog articles & guides",
+      "1 free bookkeeping template",
+      "Tax deadline reminders",
+      "Community Q&A access",
+    ],
   },
   {
-    title: "BAS, GST and record keeping",
-    description: "Plain-English education around Australian GST, business activity statements and the records you need to keep organised.",
-    icon: <Receipt className="h-8 w-8" />,
+    name: "Pro",
+    price: "$19",
+    period: "/ mo",
+    description: "Full toolkit to keep clean books all year.",
+    cta: "Start Pro — 7 Days Free",
+    ctaHref: "/sign-up",
+    highlight: true,
+    features: [
+      "15+ bookkeeping templates",
+      "All self-paced courses",
+      "Quarterly tax calculator",
+      "Priority email support",
+    ],
   },
   {
-    title: "Payroll, PAYG and super",
-    description: "Understand the workflow around payroll, PAYG withholding, Single Touch Payroll and employer super obligations before you hand the final work to your accounting or payroll system.",
-    icon: <Users className="h-8 w-8" />,
-  },
-  {
-    title: "Business setup and structure",
-    description: "Learn the practical differences between common Australian business structures and the records each structure needs.",
-    icon: <Briefcase className="h-8 w-8" />,
+    name: "Premium",
+    price: "$79",
+    period: "/ mo",
+    description: "Expert eyes on your books every month.",
+    cta: "Book a Strategy Call",
+    ctaHref: "/contact",
+    highlight: false,
+    features: [
+      "Everything in Pro",
+      "Monthly 1:1 strategy session",
+      "Custom account setup",
+      "Same-day email support",
+    ],
   },
 ]
 
-const courses = [
-  {
-    title: "Bookkeeping Basics for Australian Small Business",
-    summary: "Charts of accounts, reconciliations, source documents and month-end habits in plain English.",
-    difficulty: "Beginner",
-    topics: ["Bookkeeping", "Reconciliation", "Records"],
-  },
-  {
-    title: "BAS & GST Fundamentals",
-    summary: "Understand the language around GST and BAS so you know what your software and adviser are asking for.",
-    difficulty: "Beginner",
-    topics: ["GST", "BAS", "ATO"],
-  },
-  {
-    title: "Payroll, STP & PAYG Workflow",
-    summary: "A practical overview of paying employees, PAYG withholding, Single Touch Payroll and employer record keeping.",
-    difficulty: "Intermediate",
-    topics: ["Payroll", "STP", "PAYG"],
-  },
-  {
-    title: "Cash Flow for Small Business",
-    summary: "Build a simple cash-flow view so tax, payroll and supplier obligations do not arrive as surprises.",
-    difficulty: "Beginner",
-    topics: ["Cash Flow", "Budgeting", "Forecasting"],
-  },
-]
-
-const templates = [
-  {
-    title: "Income & Expense Tracker",
-    description: "A simple workbook for categorising business income and expenses throughout the year.",
-    status: "Free",
-  },
-  {
-    title: "BAS Preparation Checklist",
-    description: "A pre-lodgement checklist to help gather records and questions before you or your registered adviser prepare a BAS.",
-    status: "Free",
-  },
-  {
-    title: "Cash Flow Forecast",
-    description: "Plan expected receipts, supplier payments, payroll, tax and other cash movements month by month.",
-    status: "Free",
-  },
-]
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div>
-      <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-brand-950 relative overflow-hidden py-16 md:py-24">
-        <div className="absolute inset-0 bg-[url('/images/hero-allisons.jpg')] bg-cover bg-center opacity-20" aria-hidden="true" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
-          <div className="max-w-3xl space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300">Accounting tools for Australian small business</p>
-            <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl">
-              Understand the numbers before they become a problem.
-            </h1>
-            <p className="max-w-2xl text-lg text-slate-300 md:text-xl">
-              Practical Australian bookkeeping education, BAS and GST checklists, payroll explainers and spreadsheet tools — written for business owners who want to understand what is happening before they speak to their bookkeeper or accountant.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Link href="/learn" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors">Start learning free <ArrowRight className="h-4 w-4" /></Link>
-              <Link href="/templates" className="inline-flex items-center gap-2 rounded-lg border border-slate-600 px-6 py-3 text-base font-semibold text-slate-200 hover:bg-white/10 transition-colors">Browse tools & templates</Link>
-            </div>
-            <p className="text-xs text-slate-400 max-w-2xl">General educational information only. Tax, BAS and accounting obligations depend on your circumstances; use a registered tax or BAS agent where professional advice or lodgement services are required.</p>
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className="border-b bg-slate-50">
+        <div className="mx-auto max-w-4xl px-4 md:px-6 py-20 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Allison&apos;s Accounting Assistance</p>
+          <h1 className="text-4xl font-bold tracking-tight md:text-6xl mb-6">
+            Accounting help built for small business owners
+          </h1>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+            Courses, templates, and tools that turn accounting from a terrifying chore into a manageable part of running your business.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/sign-up"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+            >
+              Get Started Free <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/learn"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition-colors"
+            >
+              Browse Free Courses
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="border-b bg-white py-12 md:py-16">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              { title: "Australian terminology", desc: "ATO, BAS, GST, PAYG, STP and super — not US tax forms copied into an Australian product." },
-              { title: "Practical first", desc: "Checklists and spreadsheets designed around the records small businesses actually need to organise." },
-              { title: "Know when to escalate", desc: "Education helps you ask better questions; registered advisers handle personalised advice and regulated services." },
-            ].map((item) => (
-              <div key={item.title} className="rounded-xl border border-slate-200 bg-slate-50 p-6"><h3 className="font-bold text-lg mb-2">{item.title}</h3><p className="text-sm text-slate-600">{item.desc}</p></div>
-            ))}
-          </div>
+      {/* Features */}
+      <section className="mx-auto max-w-5xl px-4 md:px-6 py-16">
+        <div className="text-center mb-10">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-2">What we offer</p>
+          <h2 className="text-3xl font-bold tracking-tight">Everything you need to stay on top of your books</h2>
         </div>
-      </section>
-
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="mb-12 text-center"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-600 mb-3">What we cover</p><h2 className="text-3xl font-bold tracking-tight md:text-4xl">The financial admin behind a small business</h2></div>
-          <div className="grid gap-8 md:grid-cols-2">
-            {features.map((f) => (
-              <div key={f.title} className="flex gap-4 rounded-xl border border-slate-200 p-6">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-100 text-brand-700">{f.icon}</div>
-                <div><h3 className="font-bold text-lg mb-1">{f.title}</h3><p className="text-sm text-slate-600">{f.description}</p></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="mb-10"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-600 mb-3">Free learning</p><h2 className="text-3xl font-bold tracking-tight md:text-4xl">Start with the Australian basics</h2></div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {courses.map((course) => (
-              <Link key={course.title} href="/learn" className="group rounded-xl border border-slate-200 bg-white p-6 hover:border-brand-300 hover:shadow-md transition-all">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-100 text-brand-700 mb-4"><BookOpen className="h-5 w-5" /></div>
-                <p className="text-xs font-medium text-brand-700 mb-2">{course.difficulty}</p>
-                <h3 className="font-bold mb-2 group-hover:text-brand-700">{course.title}</h3>
-                <p className="text-sm text-slate-600 mb-3">{course.summary}</p>
-                <div className="flex flex-wrap gap-1">{course.topics.map((t) => <span key={t} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">{t}</span>)}</div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            { title: "Courses", desc: "Self-paced accounting courses written in plain English — no jargon, no gatekeeping.", href: "/learn", label: "Browse courses" },
+            { title: "Templates", desc: "Ready-to-use spreadsheets for bookkeeping, payroll, tax prep, and more.", href: "/templates", label: "See templates" },
+            { title: "Tools", desc: "Calculators and decision tools to help you make smarter financial choices.", href: "/tools", label: "Explore tools" },
+          ].map((item) => (
+            <div key={item.title} className="rounded-xl border border-slate-200 p-6">
+              <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+              <p className="text-sm text-slate-600 mb-4">{item.desc}</p>
+              <Link href={item.href} className="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center gap-1">
+                {item.label} <ArrowRight className="h-3 w-3" />
               </Link>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <div className="mb-10"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-600 mb-3">Templates</p><h2 className="text-3xl font-bold tracking-tight md:text-4xl">Useful files before fancy subscriptions</h2></div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {templates.map((tpl) => (
-              <div key={tpl.title} className="rounded-xl border border-slate-200 p-5">
-                <div className="flex items-start justify-between mb-3"><FileText className="h-6 w-6 text-brand-600" /><span className="text-xs font-bold px-2 py-1 rounded bg-green-100 text-green-700">{tpl.status}</span></div>
-                <h3 className="font-bold mb-1">{tpl.title}</h3><p className="text-sm text-slate-600">{tpl.description}</p>
+      {/* Pricing */}
+      <section className="bg-slate-50 border-y">
+        <div className="mx-auto max-w-5xl px-4 md:px-6 py-16">
+          <div className="text-center mb-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-2">Pricing</p>
+            <h2 className="text-3xl font-bold tracking-tight mb-3">Simple, transparent pricing</h2>
+            <p className="text-slate-600 max-w-xl mx-auto">Start free and upgrade when you&apos;re ready. No hidden fees, no long-term contracts.</p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {pricingTiers.map((tier) => (
+              <div
+                key={tier.name}
+                className={`rounded-2xl border p-7 flex flex-col bg-white ${
+                  tier.highlight ? "border-brand-600 shadow-lg ring-2 ring-brand-600" : "border-slate-200"
+                }`}
+              >
+                {tier.highlight && (
+                  <div className="mb-3">
+                    <span className="inline-block rounded-full bg-brand-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <h3 className="text-lg font-bold mb-1">{tier.name}</h3>
+                <div className="flex items-end gap-1 mb-2">
+                  <span className="text-3xl font-extrabold tracking-tight">{tier.price}</span>
+                  <span className="text-slate-500 text-sm mb-1">{tier.period}</span>
+                </div>
+                <p className="text-sm text-slate-600 mb-5">{tier.description}</p>
+                <ul className="space-y-2 mb-6 flex-1">
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-sm text-slate-700">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-600" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={tier.ctaHref}
+                  className={`block rounded-lg px-5 py-3 text-center text-sm font-semibold transition-colors ${
+                    tier.highlight
+                      ? "bg-brand-600 text-white hover:bg-brand-700"
+                      : "border border-brand-600 text-brand-600 hover:bg-brand-50"
+                  }`}
+                >
+                  {tier.cta}
+                </Link>
               </div>
             ))}
           </div>
-          <div className="mt-8 text-center"><Link href="/templates" className="inline-flex items-center gap-2 text-brand-600 font-semibold hover:text-brand-700">Browse all tools <ArrowRight className="h-4 w-4" /></Link></div>
+          <div className="text-center mt-8">
+            <Link href="/pricing" className="text-sm font-semibold text-brand-600 hover:text-brand-700 inline-flex items-center gap-1">
+              See full plan details <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-slate-50">
-        <div className="mx-auto max-w-4xl px-4 md:px-6 text-center">
-          <Calculator className="h-10 w-10 mx-auto text-brand-600 mb-4" />
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Build the toolkit first. Add paid access later.</h2>
-          <p className="text-lg text-slate-600 mb-8">The current focus is useful Australian content and working tools. Paid pricing will only be published when checkout is live and tested.</p>
-          <Link href="/learn" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-8 py-4 text-base font-semibold text-white hover:bg-brand-700">Start with the free guides <ArrowRight className="h-4 w-4" /></Link>
-        </div>
+      {/* CTA */}
+      <section className="mx-auto max-w-3xl px-4 md:px-6 py-20 text-center">
+        <h2 className="text-3xl font-bold tracking-tight mb-4">Ready to get your books under control?</h2>
+        <p className="text-slate-600 mb-8">Join hundreds of small business owners who use Allison&apos;s tools to save time and money every year.</p>
+        <Link
+          href="/sign-up"
+          className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-8 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+        >
+          Start for Free <ArrowRight className="h-4 w-4" />
+        </Link>
       </section>
     </div>
   )
