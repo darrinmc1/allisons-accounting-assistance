@@ -7,9 +7,9 @@ const STORAGE_KEY = "humor-enabled"
 const TOGGLE_EVENT = "humor:toggle"
 
 export function humorEnabled(): boolean {
-  if (typeof window === "undefined") return true
+  if (typeof window === "undefined") return false
   const v = window.localStorage.getItem(STORAGE_KEY)
-  return v === null ? true : v === "true"
+  return v === "true"
 }
 
 export function setHumorEnabled(enabled: boolean) {
@@ -18,8 +18,7 @@ export function setHumorEnabled(enabled: boolean) {
 }
 
 // Reads the shared toggle state. Rendering nothing until mounted avoids
-// hydration mismatches — the default (ON) renders the same markup server
-// and client side for the first paint.
+// hydration mismatches. Default is off for this professional site.
 export function useHumorEnabled(): boolean | null {
   const [enabled, setEnabled] = useState<boolean | null>(null)
   useEffect(() => {

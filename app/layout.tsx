@@ -19,7 +19,7 @@ const navLinks = [
   { href: "/learn", label: "Learn" },
   { href: "/templates", label: "Templates" },
   { href: "/tools", label: "Tools" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/pricing", label: "Join the list" },
   { href: "/blog", label: "Blog" },
 ]
 
@@ -98,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ul className="space-y-3">
                   <li><Link href="/about" className="text-sm text-slate-600 hover:text-slate-900">About</Link></li>
                   <li><Link href="/contact" className="text-sm text-slate-600 hover:text-slate-900">Contact</Link></li>
-                  <li><Link href="/pricing" className="text-sm text-slate-600 hover:text-slate-900">Pricing</Link></li>
+                  <li><Link href="/pricing" className="text-sm text-slate-600 hover:text-slate-900">Join the list</Link></li>
                   <li><Link href="/terms" className="text-sm text-slate-600 hover:text-slate-900">Terms</Link></li>
                   <li><Link href="/privacy" className="text-sm text-slate-600 hover:text-slate-900">Privacy</Link></li>
                   <li><Link href="/cookies" className="text-sm text-slate-600 hover:text-slate-900">Cookies</Link></li>

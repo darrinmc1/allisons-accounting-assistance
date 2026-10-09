@@ -5,6 +5,7 @@ const isPublic = createRouteMatcher([
   "/", "/sign-in(.*)", "/sign-up(.*)",
   "/api(.*)", "/_next(.*)", "/favicon.ico",
   "/llms.txt", "/llm.txt", "/sitemap.xml", "/robots.txt",
+  "/pricing", "/buy(.*)", "/checkout(.*)", "/upgrade(.*)", "/plans(.*)",
 ])
 
 const hasKeys = !!(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.CLERK_SECRET_KEY)

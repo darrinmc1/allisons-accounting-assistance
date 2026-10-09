@@ -43,7 +43,6 @@ const templates = [
     title: "Professional Invoice Pack",
     description: "5 invoice templates for different billing scenarios. Hourly, project, retainer, and more.",
     icon: "Receipt",
-    price: "$19",
     tier: "pro" as const,
     features: ["Hourly & project invoices", "Retainer billing template", "Late payment tracking", "Professional branding", "Editable DOCX format"],
   },
@@ -52,7 +51,6 @@ const templates = [
     title: "Tax Deduction Worksheet",
     description: "Comprehensive deduction tracker. Categorize and document every write-off throughout the year.",
     icon: "Calculator",
-    price: "$15",
     tier: "pro" as const,
     features: ["All Schedule C categories", "Receipt tracker with notes", "Mileage log with rates", "Home office calculator", "Year-end summary report"],
   },
@@ -61,7 +59,6 @@ const templates = [
     title: "Payroll Register Template",
     description: "Track employee pay, withholdings, and employer taxes. Perfect for small teams.",
     icon: "Users",
-    price: "$19",
     tier: "pro" as const,
     features: ["Employee pay tracking", "Tax withholding calculator", "Employer tax tracking", "Pay period summaries", "Year-end W-2 reconciliation"],
   },
@@ -70,7 +67,6 @@ const templates = [
     title: "Business Budget Planner",
     description: "Plan and track your business budget with monthly projections and actuals comparison.",
     icon: "FileSpreadsheet",
-    price: "$12",
     tier: "pro" as const,
     features: ["Revenue projections", "Expense categories", "Actual vs budget tracking", "Variance analysis", "Annual summary"],
   },
@@ -79,7 +75,6 @@ const templates = [
     title: "Chart of Accounts Guide",
     description: "Pre-built chart of accounts for 10 common business types. Customize and import into any accounting software.",
     icon: "FileText",
-    price: "$9",
     tier: "pro" as const,
     features: ["10 industry-specific COAs", "Account numbering system", "Standard categories", "QuickBooks/Xero ready", "Customization guide"],
   },
@@ -155,7 +150,7 @@ export default function TemplatesPage() {
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
                     {iconMap[tpl.icon] || <FileText className="h-5 w-5" />}
                   </div>
-                  <span className="text-sm font-bold text-brand-700">{tpl.price}</span>
+                  <span className="text-xs font-bold text-slate-600 bg-slate-100 px-2 py-1 rounded">Coming soon</span>
                 </div>
                 <h3 className="font-bold text-lg mb-2">{tpl.title}</h3>
                 <p className="text-sm text-slate-600 mb-4">{tpl.description}</p>
@@ -168,9 +163,9 @@ export default function TemplatesPage() {
                   ))}
                 </ul>
                 <div className="mt-auto">
-                  <button className="flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white w-full active:scale-[0.96] transition-transform hover:bg-brand-700 transition-colors">
-                    Buy Now - {tpl.price} <ArrowRight className="h-4 w-4" />
-                  </button>
+                  <Link href="/pricing" className="flex items-center justify-center gap-2 rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 w-full hover:bg-slate-50 transition-colors">
+                    Join the list <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
               </div>
             ))}

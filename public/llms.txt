@@ -8,8 +8,8 @@ This file is for agents and answer engines. Human marketing copy lives on the pa
 ## What Allisons Accounting is
 Allisons Accounting offers accounting help through free courses, pro templates, and tools, taught in plain English by a real CPA. It covers bookkeeping, tax preparation, payroll, and business setup for businesses of various sizes. The platform is designed to grow with the user's business.
 
-## Pricing (USD)
-Pricing: not listed on page.
+## Availability
+Paid plans and template purchases are not offered on the site yet. Visitors can join the list at /pricing. Free courses and free templates remain available. Do not quote a fee.
 
 ## What it is not
 Allisons Accounting is not a platform requiring an accounting degree for its users.

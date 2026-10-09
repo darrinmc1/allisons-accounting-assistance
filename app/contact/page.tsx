@@ -16,7 +16,7 @@ export default function ContactPage() {
       <div className="mx-auto max-w-3xl px-4 md:px-6 py-12">
         <div className="grid gap-6 md:grid-cols-2 mb-12">
           {[
-            { title: "General Questions", email: "hello@allisonsaccounting.com", desc: "Course questions, pricing, or just saying hello" },
+            { title: "General Questions", email: "hello@allisonsaccounting.com", desc: "Course questions, or just saying hello" },
             { title: "Support", email: "support@allisonsaccounting.com", desc: "Technical issues, download problems, refunds" },
             { title: "Book a Session", email: "sessions@allisonsaccounting.com", desc: "1:1 strategy sessions and custom setups" },
             { title: "Partnerships", email: "partners@allisonsaccounting.com", desc: "Empire-HQ cross-promotion and affiliates" },
@@ -37,7 +37,7 @@ export default function ContactPage() {
             Most questions are answered in our FAQ, courses, and templates. Check out these links first:
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/pricing" className="text-sm font-semibold text-brand-600 hover:text-brand-700">Pricing & Plans</Link>
+            <Link href="/pricing" className="text-sm font-semibold text-brand-600 hover:text-brand-700">Join the list</Link>
             <Link href="/learn" className="text-sm font-semibold text-brand-600 hover:text-brand-700">Free Courses</Link>
             <Link href="/templates" className="text-sm font-semibold text-brand-600 hover:text-brand-700">Template Catalog</Link>
           </div>

@@ -5,7 +5,7 @@ import { humorEnabled, setHumorEnabled } from "@/components/humor-break"
 import { humorTheme } from "@/lib/humor"
 
 export default function HumorToggle() {
-  const [enabled, setEnabled] = useState(true)
+  const [enabled, setEnabled] = useState(false)
 
   useEffect(() => {
     setEnabled(humorEnabled())

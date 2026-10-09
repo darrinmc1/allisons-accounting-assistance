@@ -13,11 +13,12 @@ export default function ImprovementsPage() {
           </div>
           <h1 className="text-3xl font-bold tracking-tight mb-3">We&apos;re Building Something Better</h1>
           <p className="text-slate-600 max-w-lg mx-auto mb-8 text-lg">
-            The payment system isn&apos;t live yet — we&apos;re putting the finishing touches on 
-            our subscription platform. When it launches, early adopters lock in the 
-            <strong className="text-green-600"> $5/month rate forever</strong>.
+            The payment system is not live yet. Join the list and we will email you when subscriptions are available.
           </p>
           <div className="flex items-center justify-center gap-4">
+            <Link href="/pricing" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700">
+              Join the list
+            </Link>
             <Link href="/" className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
               <ArrowLeft className="h-4 w-4" /> Back to Home
             </Link>

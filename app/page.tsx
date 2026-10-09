@@ -88,7 +88,6 @@ const templates = [
     title: "Professional Invoice Pack",
     description: "5 invoice templates for different billing scenarios. Hourly, project, retainer, and more.",
     tier: "pro",
-    price: "$19",
     features: ["Hourly & project invoices", "Retainer billing template", "Late payment tracking", "Professional branding"],
   },
   {
@@ -96,7 +95,6 @@ const templates = [
     title: "Tax Deduction Worksheet",
     description: "Comprehensive deduction tracker. Categorize and document every write-off throughout the year.",
     tier: "pro",
-    price: "$15",
     features: ["All Schedule C categories", "Receipt tracker", "Mileage log", "Home office calculator"],
   },
   {
@@ -104,7 +102,6 @@ const templates = [
     title: "Balance Sheet & Cash Flow Bundle",
     description: "Monthly balance sheet and cash flow statement templates. See your financial health at a glance.",
     tier: "pro",
-    price: "$19",
     features: ["Asset & liability tracking", "Cash flow forecasting", "Equity statement", "Monthly trending"],
   },
 ]
@@ -133,7 +130,7 @@ export default function Home() {
                 Start Learning Free <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/pricing" className="inline-flex items-center gap-2 rounded-lg border border-slate-600 bg-transparent px-6 py-3 text-base font-semibold text-slate-200 active:scale-[0.96] transition-transform hover:bg-white/10 transition-colors">
-                See Plans
+                Join the list
               </Link>
             </div>
           </div>
@@ -232,8 +229,8 @@ export default function Home() {
             {templates.map((tpl) => (
               <div key={tpl.id} className="rounded-xl border border-slate-200 p-5">
                 <div className="flex items-start justify-between mb-3">
-                  <span className={`text-xs font-bold px-2 py-1 rounded ${tpl.tier === "free" ? "bg-green-100 text-green-700" : "bg-brand-100 text-brand-700"}`}>
-                    {tpl.tier === "free" ? "Free" : tpl.price}
+                  <span className={`text-xs font-bold px-2 py-1 rounded ${tpl.tier === "free" ? "bg-green-100 text-green-700" : "bg-slate-100 text-slate-600"}`}>
+                    {tpl.tier === "free" ? "Free" : "Coming soon"}
                   </span>
                 </div>
                 <h3 className="font-bold mb-1">{tpl.title}</h3>
@@ -293,7 +290,7 @@ export default function Home() {
             href="/pricing"
             className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-8 py-4 text-base font-semibold text-white active:scale-[0.96] transition-transform hover:bg-brand-700 transition-colors"
           >
-            See Plans & Pricing <ArrowRight className="h-4 w-4" />
+            Join the list <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
