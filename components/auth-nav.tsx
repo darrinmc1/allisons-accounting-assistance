@@ -32,10 +32,10 @@ export default function AuthNav() {
   return (
     <>
       <Link
-        href="/dashboard"
+        href="/account"
         className="hidden sm:inline-flex text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
       >
-        Dashboard
+        Account
       </Link>
       <UserButton
         appearance={{

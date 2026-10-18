@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ClerkProvider } from "@clerk/nextjs"
 import AuthNav from "@/components/auth-nav"
+import MerchantOfRecordDisclosure from "@/components/merchant-of-record-disclosure"
 import "./globals.css"
 import { FeedbackWidget } from "@/components/feedback-widget"
 
@@ -103,8 +104,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </ul>
               </div>
             </div>
-            <div className="mt-12 border-t border-slate-200 pt-8 text-center text-sm text-slate-500">
-              &copy; {new Date().getFullYear()} Allison&apos;s Accounting Assistance - An Empire-HQ Portfolio Project.
+            <div className="mt-12 border-t border-slate-200 pt-8 text-center space-y-3">
+              <p className="text-sm text-slate-500">
+                &copy; {new Date().getFullYear()} Allison&apos;s Accounting Assistance - An Empire-HQ Portfolio Project.
+              </p>
+              <MerchantOfRecordDisclosure className="mx-auto max-w-2xl text-sm text-slate-500" />
             </div>
           </div>
         </footer>

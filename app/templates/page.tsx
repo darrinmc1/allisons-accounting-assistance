@@ -1,4 +1,5 @@
 import { CheckCircle, Download, FileText, Receipt, Calculator, DollarSign, Users, FileSpreadsheet } from "lucide-react"
+import { LegalNotice } from "@/components/legal-notice"
 
 const iconMap: Record<string, React.ReactNode> = {
   FileText: <FileText className="h-6 w-6" />,
@@ -23,6 +24,7 @@ const templates = [
     description: "A practical checklist for gathering records and questions before a BAS is prepared or lodged.",
     icon: "Receipt",
     features: ["Sales records", "Purchase records", "GST review prompts", "Payroll/PAYG prompts", "Questions for your adviser"],
+    legalNotice: true,
   },
   {
     id: "cash-flow-forecast",
@@ -37,6 +39,7 @@ const templates = [
     description: "A workflow checklist for payroll records, Single Touch Payroll reporting and follow-up tasks.",
     icon: "Users",
     features: ["Employee setup prompts", "Pay-run checklist", "STP reporting prompts", "PAYG withholding checks", "Super follow-up"],
+    legalNotice: true,
   },
   {
     id: "month-end-checklist",
@@ -84,6 +87,9 @@ export default function TemplatesPage() {
               <ul className="space-y-2 mb-6">
                 {tpl.features.map((f) => <li key={f} className="flex items-start gap-2 text-sm text-slate-600"><CheckCircle className="h-4 w-4 mt-0.5 shrink-0 text-green-500" />{f}</li>)}
               </ul>
+              {"legalNotice" in tpl && tpl.legalNotice ? (
+                <LegalNotice className="mb-4 text-xs leading-relaxed text-slate-600" />
+              ) : null}
               <div className="mt-auto">
                 <button className="w-full rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">Download / preview</button>
               </div>
