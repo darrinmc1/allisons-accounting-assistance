@@ -1,4 +1,5 @@
-import { CheckCircle, Download, FileText, Receipt, Calculator, DollarSign, Users, FileSpreadsheet } from "lucide-react"
+import { CheckCircle, Download, FileText, Receipt, Calculator, DollarSign, Users, FileSpreadsheet, ArrowRight } from "lucide-react"
+import Link from "next/link"
 import { LegalNotice } from "@/components/legal-notice"
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -70,6 +71,7 @@ export default function TemplatesPage() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 md:px-6 pt-10"><div className="rounded-xl border border-emerald-200 bg-emerald-50 p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6"><div className="flex-1"><p className="text-xs font-bold tracking-widest uppercase text-emerald-700">New free collection</p><h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">Help Your Accountant — Get Your Figures Ready First</h2><p className="mt-3 text-slate-700">Editable Australian trackers for income, expenses, missing receipts and questions before your accountant starts. No savings guarantee.</p></div><Link href="/templates/help-your-accountant" className="inline-flex items-center justify-center gap-2 shrink-0 rounded-lg bg-emerald-700 px-5 py-3 text-white font-semibold hover:bg-emerald-800">Explore and download <ArrowRight size={18}/></Link></div></section>
       <section className="mx-auto max-w-6xl px-4 md:px-6 py-12">
         <div className="mb-8">
           <h2 className="text-2xl font-bold mb-2">Free templates</h2>
