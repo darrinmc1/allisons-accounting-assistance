@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Receipt, Briefcase, Users, Calculator, FileText, CheckCircle } from "lucide-react"
+import { ArrowRight, BookOpen, Receipt, Briefcase, Users, Calculator, FileText } from "lucide-react"
+import { CHECKOUT_OFFERS } from "@/lib/offers"
 
 const features = [
   {
@@ -155,9 +156,9 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-slate-50">
         <div className="mx-auto max-w-4xl px-4 md:px-6 text-center">
           <Calculator className="h-10 w-10 mx-auto text-brand-600 mb-4" />
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Build the toolkit first. Add paid access later.</h2>
-          <p className="text-lg text-slate-600 mb-8">The current focus is useful Australian content and working tools. Paid pricing will only be published when checkout is live and tested.</p>
-          <Link href="/learn" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-8 py-4 text-base font-semibold text-white hover:bg-brand-700">Start with the free guides <ArrowRight className="h-4 w-4" /></Link>
+          <h2 className="text-3xl font-bold tracking-tight mb-4">Plans are listed. Checkout is not open yet.</h2>
+          <p className="text-lg text-slate-600 mb-8">Early Adopter is {CHECKOUT_OFFERS.early.priceLabel} and Pro is {CHECKOUT_OFFERS.pro.priceLabel}. Buy buttons stay on Coming soon until each plan has a real deliverable and payments are switched on.</p>
+          <Link href="/pricing" className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-8 py-4 text-base font-semibold text-white hover:bg-brand-700">See pricing <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </section>
     </div>
