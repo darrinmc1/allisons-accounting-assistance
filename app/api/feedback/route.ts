@@ -8,7 +8,7 @@ import { NextRequest, NextResponse } from "next/server";
 const SUPABASE_URL =
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://radlwbqfzrzmgdldyifi.supabase.co";
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
-const SITE_KEY = process.env.SITE_KEY ?? "unknown";
+const SITE_KEY = process.env.SITE_KEY ?? "allisons";
 
 const VALID_CATEGORIES = ["Bug", "Suggestion", "Content Request", "Other"];
 const FEEDBACK_TYPE: Record<string, string> = {
