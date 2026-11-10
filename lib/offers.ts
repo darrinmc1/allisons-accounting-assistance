@@ -1,6 +1,6 @@
 /**
- * Catalog of paid plans shown on the site. Amounts are the approved USD
- * prices. Do not add or change them here.
+ * Catalog of paid plans shown on the site. Prices are not published until
+ * an account exists to charge them. Do not add price fields here.
  *
  * Both plans stay available: false. The repo has never contained a paid
  * deliverable (no pdf, zip, xlsx, csv, or docx in git history). Early Adopter
@@ -16,10 +16,6 @@ export interface CheckoutOffer {
   entitlementId: string
   /** Plan name shown on the account page. */
   name: string
-  /** USD dollars. */
-  priceUsd: number
-  /** Button and page label, e.g. "$5/mo". */
-  priceLabel: string
   /** False keeps the plan on Coming soon. */
   available: boolean
   /**
@@ -34,8 +30,6 @@ export const CHECKOUT_OFFERS: Record<CheckoutSku, CheckoutOffer> = {
     sku: "early",
     entitlementId: "early-adopter",
     name: "Allison's Early Adopter",
-    priceUsd: 5,
-    priceLabel: "$5/mo",
     available: false,
     expectedDeliverablePath: "products/early-adopter-template-pack/",
   },
@@ -43,8 +37,6 @@ export const CHECKOUT_OFFERS: Record<CheckoutSku, CheckoutOffer> = {
     sku: "pro",
     entitlementId: "pro",
     name: "Allison's Pro",
-    priceUsd: 10,
-    priceLabel: "$10/mo",
     available: false,
     expectedDeliverablePath: "products/pro-tools/",
   },

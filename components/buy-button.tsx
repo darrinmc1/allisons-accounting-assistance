@@ -1,13 +1,13 @@
 import { LegalNotice } from "@/components/legal-notice"
 import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record-disclosure"
 import { NotifyForm } from "@/components/notify-form"
-import { CHECKOUT_OFFERS, type CheckoutSku } from "@/lib/offers"
+import { type CheckoutSku } from "@/lib/offers"
 import { REFUND_POLICY } from "@/lib/refund-policy"
 import { getSupportEmail } from "@/lib/support-email"
 
 /**
- * Paid plans are not for sale. The control stays the disabled "Coming soon"
- * label, with the waitlist form underneath.
+ * Paid plans are not for sale. The control stays a disabled "Coming soon"
+ * placeholder, with the waitlist form underneath. No price is shown.
  */
 export function BuyButton({
   sku,
@@ -16,7 +16,6 @@ export function BuyButton({
   sku: CheckoutSku
   legalNotice?: boolean
 }) {
-  const offer = CHECKOUT_OFFERS[sku]
   const supportEmail = getSupportEmail()
 
   return (
@@ -27,7 +26,7 @@ export function BuyButton({
         aria-disabled="true"
         className="w-full cursor-not-allowed rounded-lg border border-slate-300 bg-slate-100 px-4 py-3 text-center text-sm font-semibold text-slate-500"
       >
-        Coming soon: {offer.priceLabel}
+        Coming soon
       </button>
 
       <MerchantOfRecordDisclosure className="mt-3 text-xs leading-relaxed text-slate-500" />
