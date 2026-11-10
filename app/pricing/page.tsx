@@ -2,7 +2,6 @@ import Link from "next/link"
 import { CheckCircle } from "lucide-react"
 import { BuyButton } from "@/components/buy-button"
 import { LegalNotice } from "@/components/legal-notice"
-import { CHECKOUT_OFFERS } from "@/lib/offers"
 import { REFUND_POLICY } from "@/lib/refund-policy"
 
 const freeFeatures = [
@@ -26,7 +25,7 @@ const proFeatures = [
 
 export const metadata = {
   title: "Pricing — Allison's Accounting Assistance",
-  description: "Early Adopter is $5/mo and Pro is $10/mo in USD. Checkout is not open yet.",
+  description: "Early Adopter and Pro are listed as Coming soon. Checkout is not open yet.",
 }
 
 export default function PricingPage() {
@@ -37,7 +36,7 @@ export default function PricingPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-700 mb-3">Pricing</p>
           <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Simple pricing. No surprises.</h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Start free. Early Adopter is {CHECKOUT_OFFERS.early.priceLabel}. Pro is {CHECKOUT_OFFERS.pro.priceLabel}. Checkout stays closed until each plan is ready.
+            Start free. Early Adopter and Pro stay on Coming soon until each plan is ready.
           </p>
         </div>
       </section>
@@ -46,9 +45,6 @@ export default function PricingPage() {
         <div className="grid gap-6 md:grid-cols-3 items-start">
           <div className="rounded-xl border border-slate-200 bg-white p-6 md:p-8">
             <h2 className="font-bold text-xl mb-2">Free</h2>
-            <div className="mb-4">
-              <span className="text-4xl font-bold">$0</span>
-            </div>
             <p className="text-sm text-slate-600 mb-6">Get started with the guides and basic tools. No credit card needed.</p>
             <Link
               href="/learn"
@@ -68,10 +64,6 @@ export default function PricingPage() {
 
           <div className="rounded-xl border border-brand-500 bg-white p-6 shadow-lg ring-1 ring-brand-500 md:p-8">
             <h2 className="font-bold text-xl mb-2">Early Adopter</h2>
-            <div className="mb-4">
-              <span className="text-4xl font-bold">{CHECKOUT_OFFERS.early.priceLabel.replace("/mo", "")}</span>
-              <span className="text-sm text-slate-500">/month</span>
-            </div>
             <p className="text-sm text-slate-600 mb-6">
               Early supporter price for the template packs and tools, once that plan is ready to ship.
             </p>
@@ -90,10 +82,6 @@ export default function PricingPage() {
 
           <div className="rounded-xl border border-slate-200 bg-white p-6 md:p-8">
             <h2 className="font-bold text-xl mb-2">Pro</h2>
-            <div className="mb-4">
-              <span className="text-4xl font-bold">{CHECKOUT_OFFERS.pro.priceLabel.replace("/mo", "")}</span>
-              <span className="text-sm text-slate-500">/month</span>
-            </div>
             <p className="text-sm text-slate-600 mb-6">Full access when the extra tools are ready.</p>
             <div className="mb-8">
               <BuyButton sku="pro" legalNotice />

@@ -4,8 +4,8 @@ import { getActiveEntitlementIds } from "@/lib/entitlements"
 import { CHECKOUT_OFFERS } from "@/lib/offers"
 
 const LABELS: Record<string, string> = {
-  [CHECKOUT_OFFERS.early.entitlementId]: `Early Adopter (${CHECKOUT_OFFERS.early.priceLabel})`,
-  [CHECKOUT_OFFERS.pro.entitlementId]: `Pro (${CHECKOUT_OFFERS.pro.priceLabel})`,
+  [CHECKOUT_OFFERS.early.entitlementId]: "Early Adopter",
+  [CHECKOUT_OFFERS.pro.entitlementId]: "Pro",
 }
 
 export const dynamic = "force-dynamic"
