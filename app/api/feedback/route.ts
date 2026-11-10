@@ -4,6 +4,7 @@
 // workflow then files a GitHub issue, routing by the full page URL's domain.
 
 import { NextRequest, NextResponse } from "next/server";
+import { notifyFeedbackWebhook } from "@/lib/feedback-webhook";
 
 const SUPABASE_URL =
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://radlwbqfzrzmgdldyifi.supabase.co";
@@ -111,6 +112,9 @@ export async function POST(req: NextRequest) {
     console.error("[feedback] supabase insert failed", res.status, detail);
     return NextResponse.json({ error: "Failed to submit feedback." }, { status: 502 });
   }
+
+  // Empire Feedback→GitHub (n8n). Failures must not change the response below.
+  await notifyFeedbackWebhook();
 
   return NextResponse.json({ message: "Thank you for your feedback. We read every note!" });
 }
